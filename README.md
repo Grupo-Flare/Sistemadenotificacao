@@ -61,7 +61,7 @@ git pull
  |- /src/main -> Diretório onde estão os códigos fontes
  	|- /resources -> Diretório onde estão arquivos de configuração e as paginas html
  	 	|- templates -> Onde estão as paginas html
-    |- static -> Onde estão os recursos das paginas html, como imagens
+                |- static -> Onde estão os recursos das paginas html, como imagens
  		|- aplication.properties -> Configurações da aplicação, como conexão com o banco
  	|- /java -> Códigos fontes
  	|- test -> Testes automatizados
