@@ -9,19 +9,27 @@ alguma atividade, informações e alertas sobre cuidados com relação à COVID-
 
 ## Como executar 
 
-./mvnw spring-boot:run
-
-## Branches
-
-Esta é a branch principal (`main`), é onde vai estar todo o código já testado. Será também a versão que ira para produção.
-
-A branch `backend` sera onde ocorrera todo o desenvolvimento do backend da aplicação, ou seja, regras de negocio e conexão com o banco de dados.
-
-A branch `frontend` sera onde ocorrera o desenvolvimento do frontend da aplicação, ou seja, as paginas HTML, junto com o CSS e JavaScript
-
-### Como trocar de branch
 ```
-git checkout <nome_da_branch>
+./mvnw spring-boot:run
+```
+Para a criação das telas da aplicação não é necessario iniciar todo o projeto java, basta abrir o projeto com o VsCode e usar a extensão live-server. 
+
+## Usando o Git e GitHub
+### Baixando o projeto
+```
+git clone git@github.com:HugoOliveiraSoares/Sistemadenotificacao.git
+```
+
+Esta é a branch principal (`main`), é onde vai estar todo o código em desenvolvimento.
+
+Ao desenvolver uma nova funcionalidade crie uma nova branch para poder trabalhar na modificação. Uma boa pratica é nomear a branch com o nome da funcionalidade, ou a funcionalidade junto do seu nome.
+
+Ex.: **busca_alunos**
+
+Podera criar uma nova branch com o comando:
+
+```
+git checkout -b <nome_da_branch>
 ```
 Se for necessario trocar de branch mas ainda não terminou o que estava fazendo, ou seja, não commitou as mudanças de um "stash" para salvar o que estava fazendo.
 ```
@@ -31,6 +39,21 @@ Ao voltar no que estava fazendo, de um "apply" nas modificações.
 ```
 git stash apply
 ```
+
+Quando terminar de trabalhar na modificação em que estava fazendo suba todo o codigo para o github e crie um pull request para a branch main.
+
+Na primeira vez em que subir a nova branch, execute:
+
+```
+git push --set-upstream origin <nome_da_branch>
+```
+
+Nas proximas vezes podera ser:
+
+```
+git pull
+```
+
 ## Estrutura do projeto
 ```
 |- pom.xml -> Onde estão as dependências do projeto 
@@ -38,7 +61,7 @@ git stash apply
  |- /src/main -> Diretório onde estão os códigos fontes
  	|- /resources -> Diretório onde estão arquivos de configuração e as paginas html
  	 	|- templates -> Onde estão as paginas html
-        |- static -> Onde estão os recursos das paginas html, como imagens
+    |- static -> Onde estão os recursos das paginas html, como imagens
  		|- aplication.properties -> Configurações da aplicação, como conexão com o banco
  	|- /java -> Códigos fontes
  	|- test -> Testes automatizados
