@@ -46,6 +46,17 @@ Nas proximas vezes podera ser:
 git pull
 ```
 
+### Fazendo download de outras branches
+
+Durante o desenvolvimento é possivel que precisaremos que fazer o download de outras branches para fazer testes ou continuar o desenvolvimento.
+
+O comando para isso é:
+```
+git checkout -b <nome_branch> origin/<nome_branch>
+```
+
+------
+
 Se for necessario trocar de branch mas ainda não terminou o que estava fazendo, ou seja, não commitou as mudanças de um "stash" para salvar o que estava fazendo.
 ```
 git stash 
