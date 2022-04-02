@@ -17,7 +17,7 @@ Para a criação das telas da aplicação não é necessario iniciar todo o proj
 ## Usando o Git e GitHub
 ### Baixando o projeto
 ```
-git clone git@github.com:HugoOliveiraSoares/Sistemadenotificacao.git
+git clone https://github.com/HugoOliveiraSoares/Sistemadenotificacao.git 
 ```
 
 Esta é a branch principal (`main`), é onde vai estar todo o código em desenvolvimento.
@@ -30,14 +30,6 @@ Podera criar uma nova branch com o comando:
 
 ```
 git checkout -b <nome_da_branch>
-```
-Se for necessario trocar de branch mas ainda não terminou o que estava fazendo, ou seja, não commitou as mudanças de um "stash" para salvar o que estava fazendo.
-```
-git stash 
-```
-Ao voltar no que estava fazendo, de um "apply" nas modificações.
-```
-git stash apply
 ```
 
 Quando terminar de trabalhar na modificação em que estava fazendo suba todo o codigo para o github e crie um pull request para a branch main.
@@ -54,6 +46,15 @@ Nas proximas vezes podera ser:
 git pull
 ```
 
+Se for necessario trocar de branch mas ainda não terminou o que estava fazendo, ou seja, não commitou as mudanças de um "stash" para salvar o que estava fazendo.
+```
+git stash 
+```
+Ao voltar no que estava fazendo, de um "apply" nas modificações.
+```
+git stash apply
+```
+
 ## Estrutura do projeto
 ```
 |- pom.xml -> Onde estão as dependências do projeto 
@@ -66,3 +67,13 @@ git pull
  	|- /java -> Códigos fontes
  	|- test -> Testes automatizados
 ```
+
+## Links uteis
+
+[Prototipo no Figma](https://www.figma.com/file/8gRuOJaswo6iokWmzTI1kR/SistemaDeNotifica%C3%A7%C3%A3o?node-id=0%3A1)
+
+[Estrutura e regra de négocio](https://miro.com/app/board/o9J_lrBHrqc=/?invite_link_id=967976314075)
+
+[O que é GIT e GITHUB?](https://www.youtube.com/watch?v=DqTITcMq68k)
+
+[Como usar GIT e GITHUB na prática](https://www.youtube.com/watch?v=UBAX-13g8OM)
