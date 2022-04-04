@@ -26,7 +26,7 @@ const fKey = '';
 // Ao clicar no botão de inscrever-se, cadastra o usuario
 botao.onclick = function() {
 
-  getToken(messaging, { vapidKey: '' })
+  getToken(messaging, { vapidKey: publicKey })
     .then((currentToken) => {
       if (currentToken) {
         tokenDiv.innerHTML = 'Token: <br>' + JSON.stringify(currentToken); // Mostra o token na tela
@@ -49,6 +49,30 @@ botao.onclick = function() {
     });
 }
 
+//Envia o token para o servidor
+function sendSubscriptionToServer(token) {
+
+  // Headers
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+
+  //Corpo da requisição
+  var body = JSON.stringify({
+    "token": token
+  });
+
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: body,
+    redirect: 'follow'
+  };
+
+  fetch("/subscription", requestOptions)
+    .then(response => response.text())
+    .then(result => console.log(result))
+    .catch(error => console.log('error', error));
+}
 
 // Evento de mensagem, assim que receber a mensagem mostra pro usuario
 onMessage(messaging, (payload) => {
