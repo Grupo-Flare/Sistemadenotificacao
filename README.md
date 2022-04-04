@@ -26,13 +26,13 @@ Ao desenvolver uma nova funcionalidade crie uma nova branch para poder trabalhar
 
 Ex.: **busca_alunos**
 
-Podera criar uma nova branch com o comando:
+Crie uma nova branch com o comando:
 
 ```
 git checkout -b <nome_da_branch>
 ```
 
-Quando terminar de trabalhar na modificação em que estava fazendo suba todo o codigo para o github e **crie um pull request** para a branch main.
+Quando terminar de trabalhar na modificação, suba todo o codigo para o github e **crie um pull request** para a branch main.
 
 Na primeira vez em que subir a nova branch, execute:
 
@@ -40,10 +40,10 @@ Na primeira vez em que subir a nova branch, execute:
 git push --set-upstream origin <nome_da_branch>
 ```
 
-Nas proximas vezes podera ser:
+Nas proximas vezes podera ser somente:
 
 ```
-git pull
+git push
 ```
 
 ### Fazendo download de outras branches
@@ -52,7 +52,7 @@ Durante o desenvolvimento é possivel que precisaremos que fazer o download de o
 
 O comando para isso é:
 ```
-git checkout -b <nome_branch> origin/<nome_branch>
+git checkout -t <nome_branch> origin/<nome_branch>
 ```
 
 ------
