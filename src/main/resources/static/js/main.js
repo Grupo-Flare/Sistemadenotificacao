@@ -21,7 +21,7 @@ const app = initializeApp(firebaseConfig);
 const messaging = getMessaging(app);
 
 // Chave do firebase
-const publicKey = '';
+const publicKey = 'BAEsApKlUTrFdJCRz6eXRogneeObnXnhJTbQW5BFZi_V5z9-_3iYXfEs4UmL1CtccivhGezXnGhcMnC2as2kO54';
 
 // Ao clicar no botão de inscrever-se, cadastra o usuario
 botao.onclick = function() {

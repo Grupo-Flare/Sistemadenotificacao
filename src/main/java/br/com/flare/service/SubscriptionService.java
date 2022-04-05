@@ -3,17 +3,16 @@ package br.com.flare.service;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
 import br.com.flare.repository.SubscriptionRepository;
-import com.google.firebase.ErrorCode;
-import com.google.firebase.FirebaseException;
+import br.com.flare.vallidation.ApiErrorException;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
 import com.google.firebase.messaging.Notification;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
-import java.util.HashMap;
 
 @Service
 public class SubscriptionService {
@@ -28,13 +27,14 @@ public class SubscriptionService {
     public void saveSubscription(Subscription pushSubscription) {
 
         try {
+            subscriptionRepository.save(pushSubscription);
             // Envia uma notificação de confirmação
             sendNotificationToOneUser(
                     new Note("Confirmando", "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app", ""),
                     pushSubscription);
-            subscriptionRepository.save(pushSubscription);
         } catch (FirebaseMessagingException e) {
             e.printStackTrace();
+            throw new ApiErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() + ": " + e.getMessagingErrorCode());
         }
 
     }
