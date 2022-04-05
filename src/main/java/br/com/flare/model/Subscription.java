@@ -10,7 +10,7 @@ public class Subscription {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  @Column(nullable = false)
+  @Column(nullable = false) // Restrição no banco em que o campo não pode ser nulo
   private String token;
 
   public Subscription() {
