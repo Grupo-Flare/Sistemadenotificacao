@@ -17,7 +17,7 @@ Para a criação das telas da aplicação não é necessario iniciar todo o proj
 ## Usando o Git e GitHub
 ### Baixando o projeto
 ```
-git clone https://github.com/HugoOliveiraSoares/Sistemadenotificacao.git 
+git clone https://github.com/Grupo-Flare/Sistemadenotificacao.git
 ```
 
 Esta é a branch principal (`main`), é onde vai estar todo o código em desenvolvimento.
