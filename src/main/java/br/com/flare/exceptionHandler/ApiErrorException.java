@@ -1,4 +1,4 @@
-package br.com.flare.vallidation;
+package br.com.flare.exceptionHandler;
 
 import org.springframework.http.HttpStatus;
 

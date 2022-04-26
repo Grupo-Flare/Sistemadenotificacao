@@ -1,4 +1,4 @@
-package br.com.flare.vallidation;
+package br.com.flare.exceptionHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
