@@ -1,18 +1,24 @@
 package br.com.flare.dto;
 
+import br.com.flare.annotations.Unique;
 import br.com.flare.model.Subscription;
 
-import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 public class SubscriptionDTO {
 
-  @NotEmpty
+  @NotBlank @NotNull @Unique(domainClass = Subscription.class, fieldName = "token")
   private String token;
 
   public SubscriptionDTO() {
   }
 
   public SubscriptionDTO(String token) {
+    this.token = token;
+  }
+
+  public void setToken(String token) {
     this.token = token;
   }
 
