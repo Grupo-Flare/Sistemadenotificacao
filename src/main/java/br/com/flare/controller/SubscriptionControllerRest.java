@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class SubscriptionControllerRest {
 
     @Autowired
-    SubscriptionService subscriptionService;
+    private SubscriptionService subscriptionService;
 
     @PostMapping
     public ResponseEntity<?> subscribe(@RequestBody @Valid SubscriptionDTO subscriptionDTO) {

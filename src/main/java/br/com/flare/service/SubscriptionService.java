@@ -3,7 +3,7 @@ package br.com.flare.service;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
 import br.com.flare.repository.SubscriptionRepository;
-import br.com.flare.vallidation.ApiErrorException;
+import br.com.flare.exceptionHandler.ApiErrorException;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import com.google.firebase.messaging.Message;
@@ -13,15 +13,21 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.PersistenceException;
+
 
 @Service
 public class SubscriptionService {
 
-    @Autowired
-    private SubscriptionRepository subscriptionRepository;
+    private final SubscriptionRepository subscriptionRepository;
+
+    private final FirebaseMessaging firebaseMessaging;
 
     @Autowired
-    private FirebaseMessaging firebaseMessaging;
+    public SubscriptionService(SubscriptionRepository subscriptionRepository, FirebaseMessaging firebaseMessaging) {
+        this.subscriptionRepository = subscriptionRepository;
+        this.firebaseMessaging = firebaseMessaging;
+    }
 
     @Transactional
     public void saveSubscription(Subscription pushSubscription) {
@@ -34,9 +40,11 @@ public class SubscriptionService {
                     pushSubscription);
         } catch (FirebaseMessagingException e) {
             e.printStackTrace();
-            throw new ApiErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() + ": " + e.getMessagingErrorCode());
+            throw new ApiErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
+        } catch (PersistenceException e){
+            e.printStackTrace();
+            throw new ApiErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         }
-
     }
 
     public String sendNotificationToOneUser(Note note, Subscription subscription) throws FirebaseMessagingException {
