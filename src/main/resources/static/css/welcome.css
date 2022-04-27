@@ -35,6 +35,10 @@ h6 {
     background-color: #C41632;
 }
 
+.align-right {
+    margin-left: 450px;
+}
+
 .dropdown:hover .dropdown-menu {
     display: block;
 }
