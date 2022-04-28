@@ -12,12 +12,13 @@
     <form th:object="${notificationDTO}" action="notification/send" method="post">
         <div>
             <label for="titulo">Titulo:</label>
-            <input th:field="*{titulo}" type="text" id="titulo">
+            <input th:field="*{title}" type="text" id="titulo">
         </div>
         <div>
             <label for="msg">Mensagem:</label>
-            <textarea th:field="*{mensagem}" id="msg" cols="30" rows="10"></textarea>
+            <textarea th:field="*{message}" id="msg" cols="30" rows="10"></textarea>
         </div>
+        <button type="submit">Enviar notificação</button>
     </form>
 
 </body>

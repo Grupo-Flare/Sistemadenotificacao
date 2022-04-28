@@ -16,7 +16,9 @@ import org.springframework.http.HttpStatus;
 import br.com.flare.exceptionHandler.ApiErrorException;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
+import org.springframework.stereotype.Service;
 
+@Service
 public class SendNotificationService {
     
     private final FirebaseMessaging firebaseMessaging;

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.flare.dto.NotificationDTO;
@@ -16,11 +17,11 @@ import br.com.flare.repository.SubscriptionRepository;
 import br.com.flare.service.SendNotificationService;
 
 @Controller
-@RestController("/notification")
+@RequestMapping("/notification")
 public class NotificationController {
     
-    private SendNotificationService sendNotificationService;
-    private SubscriptionRepository subscriptionRepository;
+    private final SendNotificationService sendNotificationService;
+    private final SubscriptionRepository subscriptionRepository;
 
     @Autowired
     public NotificationController(SendNotificationService sendNotificationService, SubscriptionRepository subscriptionRepository) {
