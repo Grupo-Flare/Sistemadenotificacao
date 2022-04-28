@@ -19,12 +19,12 @@ import br.com.flare.model.Subscription;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SendNotificationService {
+public class NotificationSenderService {
     
     private final FirebaseMessaging firebaseMessaging;
 
     @Autowired
-    public SendNotificationService(FirebaseMessaging firebaseMessaging) {
+    public NotificationSenderService(FirebaseMessaging firebaseMessaging) {
         this.firebaseMessaging = firebaseMessaging;
     }
     

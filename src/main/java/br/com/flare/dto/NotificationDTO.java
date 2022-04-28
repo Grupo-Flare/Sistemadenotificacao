@@ -2,9 +2,15 @@ package br.com.flare.dto;
 
 import br.com.flare.model.Note;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class NotificationDTO {
 
+    @NotNull @NotBlank
     private String title;
+
+    @NotNull @NotBlank
     private String message;
 
     public NotificationDTO(String title, String message) {

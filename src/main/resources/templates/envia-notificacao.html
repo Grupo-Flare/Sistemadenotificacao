@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <!-- TODO: Substituir pela pagina planejada no figma, esta é so de teste do back -->
     <meta charset="UTF-8">
@@ -12,11 +12,17 @@
     <form th:object="${notificationDTO}" action="notification/send" method="post">
         <div>
             <label for="titulo">Titulo:</label>
-            <input th:field="*{title}" type="text" id="titulo">
+            <input th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo">
+        </div>
+        <div th:errors="*{title}" class="invalid-feedback">
+            Erros do titulo
         </div>
         <div>
             <label for="msg">Mensagem:</label>
-            <textarea th:field="*{message}" id="msg" cols="30" rows="10"></textarea>
+            <textarea th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30" rows="10"></textarea>
+        </div>
+        <div th:errors="*{message}" class="invalid-feedback">
+            Erros da mensagem
         </div>
         <button type="submit">Enviar notificação</button>
     </form>
