@@ -25,6 +25,12 @@
         padding-left: 228px;
         padding-right: 228px;
     }
+    .padd-left {
+        padding-left: 148px;
+    }
+    .margin-left {
+        margin-left: 98px;
+    }
 }
 
 h6 {
