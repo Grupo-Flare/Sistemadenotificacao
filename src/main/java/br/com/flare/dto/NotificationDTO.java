@@ -1,15 +1,15 @@
-package br.com.flare.model;
+package br.com.flare.dto;
 
-public class Note {
+import br.com.flare.model.Note;
+
+public class NotificationDTO {
 
     private String title;
     private String message;
-    private String imageUrl;
 
-    public Note(String title, String message, String imageUrl) {
+    public NotificationDTO(String title, String message) {
         this.title = title;
         this.message = message;
-        this.imageUrl = imageUrl;
 
     }
 
@@ -28,12 +28,11 @@ public class Note {
     public void setMessage(String message) {
         this.message = message;
     }
+    
+    public Note toModel() {
+       
+        return new Note(getTitle(), getMessage(), "");
 
-    public String getImageUrl() {
-        return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
-    }
 }

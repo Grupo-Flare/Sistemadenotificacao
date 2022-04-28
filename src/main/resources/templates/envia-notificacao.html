@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- TODO: Substituir pela pagina planejada no figma, esta é so de teste do back -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envia notificação</title>
+</head>
+<body>
+   
+    <form th:object="${notificationDTO}" action="notification/send" method="post">
+        <div>
+            <label for="titulo">Titulo:</label>
+            <input th:field="*{titulo}" type="text" id="titulo">
+        </div>
+        <div>
+            <label for="msg">Mensagem:</label>
+            <textarea th:field="*{mensagem}" id="msg" cols="30" rows="10"></textarea>
+        </div>
+    </form>
+
+</body>
+</html>
