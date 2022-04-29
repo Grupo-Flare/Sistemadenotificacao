@@ -13,6 +13,11 @@
 .botaoLogin-regitro {
     background-color: #05092B;
     border-radius: 10px;
-    font-size: large;
-    margin-right: 10px;
+    font-size: 15px;
+    display: inline-block;
+    width: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
 }
