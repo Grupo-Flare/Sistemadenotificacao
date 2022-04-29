@@ -1,7 +1,5 @@
 package br.com.flare.exceptionHandler;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -14,6 +12,8 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @ControllerAdvice
 public class ApiErrorHandler {
@@ -65,8 +65,6 @@ public class ApiErrorHandler {
         ModelAndView modelAndView = new ModelAndView("error");
         modelAndView.addObject("status", exception.getHttpStatus());
         modelAndView.addObject("reason", exception.getReason());
-        modelAndView.addObject("cause", exception.getCause());
-        modelAndView.addObject("message", exception.getMessage());
         modelAndView.setStatus(exception.getHttpStatus());
         return modelAndView;
     }

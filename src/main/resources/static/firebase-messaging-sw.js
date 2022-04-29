@@ -4,13 +4,13 @@ importScripts('https://www.gstatic.com/firebasejs/9.2.0/firebase-messaging-compa
 
 // Configuração do firebase
 firebase.initializeApp({
-  apiKey: "",
-  authDomain: "",
-  projectId: "",
-  storageBucket: "",
-  messagingSenderId: "",
-  appId: "",
-  measurementId: ""
+  apiKey: "AIzaSyDBXiG5NM8pbBZHHcXV5Zb63qFTJWjAYe8",
+    authDomain: "flare-d3e52.firebaseapp.com",
+    projectId: "flare-d3e52",
+    storageBucket: "flare-d3e52.appspot.com",
+    messagingSenderId: "341132455706",
+    appId: "1:341132455706:web:fcc242cf12255e5ed646a3",
+    measurementId: "G-31W3RHLBSY"
 });
 
 const messaging = firebase.messaging();
