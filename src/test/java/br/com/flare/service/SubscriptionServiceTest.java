@@ -34,10 +34,13 @@ class SubscriptionServiceTest {
 
     @InjectMocks
     private SubscriptionService subscriptionService;
+    
+    @InjectMocks
+    private NotificationSenderService notificationSenderService;
 
     @BeforeEach
     public void setup() {
-        subscriptionService = new SubscriptionService(subscriptionRepositoryMock, firebaseMessagingMock);
+        subscriptionService = new SubscriptionService(subscriptionRepositoryMock, notificationSenderService);
     }
 
     @Test
@@ -47,7 +50,7 @@ class SubscriptionServiceTest {
                 .thenThrow(FirebaseMessagingException.class);
 
         assertThrows(FirebaseMessagingException.class, () -> {
-            subscriptionService.sendNotificationToOneUser(
+            notificationSenderService.sendNotificationToOneUser(
                     new Note("TITULO", "MENSAGEM", "URL"), new Subscription("TOKEN")
             );
         });
