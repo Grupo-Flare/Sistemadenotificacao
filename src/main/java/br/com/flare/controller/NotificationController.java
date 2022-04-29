@@ -2,12 +2,16 @@ package br.com.flare.controller;
 
 import java.util.List;
 
+import br.com.flare.exceptionHandler.MvcErrorException;
 import br.com.flare.repository.NotificationRepository;
+import com.google.firebase.messaging.FirebaseMessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.flare.dto.NotificationDTO;
@@ -16,6 +20,7 @@ import br.com.flare.model.Subscription;
 import br.com.flare.repository.SubscriptionRepository;
 import br.com.flare.service.NotificationSenderService;
 
+import javax.persistence.PersistenceException;
 import javax.validation.Valid;
 
 @Controller
@@ -46,9 +51,16 @@ public class NotificationController {
         }
         
         Note note = notificationDTO.toModel();
-        List<Subscription> subscriptions = subscriptionRepository.findAll(); 
-        notificationSenderService.sendNotificationToAllUsers(note, subscriptions);
-        notificationRepository.save(note);
+        try {
+            List<Subscription> subscriptions = subscriptionRepository.findAll();
+            notificationSenderService.sendNotificationToAllUsers(note, subscriptions);
+            notificationRepository.save(note);
+        } catch (FirebaseMessagingException e) {
+            throw new MvcErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
+        } catch (PersistenceException e) {
+            throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() + "\n" + e.getCause());
+        }
+
         return "redirect:/notification";
         
     }

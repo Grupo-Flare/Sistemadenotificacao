@@ -1,9 +1,9 @@
 package br.com.flare.service;
 
+import br.com.flare.exceptionHandler.ApiErrorException;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
 import br.com.flare.repository.SubscriptionRepository;
-import br.com.flare.exceptionHandler.ApiErrorException;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -34,12 +34,12 @@ public class SubscriptionService {
             notificationSenderService.sendNotificationToOneUser(
                     new Note("Confirmando", "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app", ""),
                     pushSubscription);
-        } catch (FirebaseMessagingException e) {
-            e.printStackTrace();
-            throw new ApiErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
         } catch (PersistenceException e){
             e.printStackTrace();
             throw new ApiErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
+        } catch (FirebaseMessagingException e) {
+            e.printStackTrace();
+            throw new ApiErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
         }
     }
 
