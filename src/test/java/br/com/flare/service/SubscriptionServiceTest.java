@@ -20,8 +20,7 @@ import javax.persistence.PersistenceException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 class SubscriptionServiceTest {
@@ -32,29 +31,15 @@ class SubscriptionServiceTest {
     @Mock
     private SubscriptionRepository subscriptionRepositoryMock = mock(SubscriptionRepository.class);
 
+    @Mock
+    private NotificationSenderService notificationSenderService = mock(NotificationSenderService.class);
+
     @InjectMocks
     private SubscriptionService subscriptionService;
-    
-    @InjectMocks
-    private NotificationSenderService notificationSenderService;
 
     @BeforeEach
     public void setup() {
         subscriptionService = new SubscriptionService(subscriptionRepositoryMock, notificationSenderService);
-    }
-
-    @Test
-    void deveEstourarFirebaseMessagingException() throws FirebaseMessagingException {
-
-        when(firebaseMessagingMock.send(any(Message.class)))
-                .thenThrow(FirebaseMessagingException.class);
-
-        assertThrows(FirebaseMessagingException.class, () -> {
-            notificationSenderService.sendNotificationToOneUser(
-                    new Note("TITULO", "MENSAGEM", "URL"), new Subscription("TOKEN")
-            );
-        });
-
     }
 
     @Test
@@ -63,8 +48,9 @@ class SubscriptionServiceTest {
         when(subscriptionRepositoryMock.save(any(Subscription.class)))
                 .thenReturn(new Subscription("TOKEN"));
 
-        when(firebaseMessagingMock.send(any(Message.class)))
-                .thenThrow(FirebaseMessagingException.class);
+        doThrow(FirebaseMessagingException.class)
+                .when(notificationSenderService)
+                .sendNotificationToOneUser(any(Note.class), any(Subscription.class));
 
         ApiErrorException token = assertThrows(ApiErrorException.class, () -> {
             subscriptionService.saveSubscription(new Subscription("TOKEN"));
