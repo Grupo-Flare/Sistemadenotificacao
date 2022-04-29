@@ -1,5 +1,7 @@
 package br.com.flare.exceptionHandler;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -10,14 +12,10 @@ import org.springframework.validation.FieldError;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
-@RestControllerAdvice
+@ControllerAdvice
 public class ApiErrorHandler {
 
     @Autowired
@@ -30,7 +28,7 @@ public class ApiErrorHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ApiErrorsOutput handleValidationError(MethodArgumentNotValidException exception) {
+    public @ResponseBody ApiErrorsOutput handleValidationError(MethodArgumentNotValidException exception) {
 
         List<ObjectError> globalErrors = exception.getBindingResult().getGlobalErrors();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
@@ -41,7 +39,7 @@ public class ApiErrorHandler {
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)
-    public ApiErrorsOutput handleValidationError(BindException exception) {
+    public @ResponseBody ApiErrorsOutput handleValidationError(BindException exception) {
 
         List<ObjectError> globalErrors = exception.getBindingResult().getGlobalErrors();
         List<FieldError> fieldErrors = exception.getBindingResult().getFieldErrors();
@@ -51,13 +49,26 @@ public class ApiErrorHandler {
     }
 
     @ExceptionHandler(ApiErrorException.class)
-    public ResponseEntity<ApiErrorsOutput> handleApiErrorException(ApiErrorException exception) {
+    public @ResponseBody ResponseEntity<ApiErrorsOutput> handleApiErrorException(ApiErrorException exception) {
 
         ApiErrorsOutput outputDto = new ApiErrorsOutput();
         outputDto.addError(exception.getReason());
 
         return ResponseEntity.status(exception.getHttpStatus()).body(outputDto);
 
+    }
+
+    @ExceptionHandler(MvcErrorException.class)
+    public ModelAndView handleMvcErrorException(MvcErrorException exception) {
+        exception.printStackTrace();
+
+        ModelAndView modelAndView = new ModelAndView("error");
+        modelAndView.addObject("status", exception.getHttpStatus());
+        modelAndView.addObject("reason", exception.getReason());
+        modelAndView.addObject("cause", exception.getCause());
+        modelAndView.addObject("message", exception.getMessage());
+        modelAndView.setStatus(exception.getHttpStatus());
+        return modelAndView;
     }
 
     private ApiErrorsOutput buildValidationErrors(List<ObjectError> globalErrors, List<FieldError> fieldErrors) {
