@@ -4,15 +4,21 @@
     position: -ms-page;
 }
 
-.BemVindo {
-    padding: 35px;
-    background-color: #C41632;
-    text-align: center;
-}
-
 .botaoLogin-regitro {
     background-color: #05092B;
-    border-radius: 10px;
+    border-radius: 8px;
     font-size: large;
     margin-right: 10px;
+}
+
+.BemVindo {
+    background-color: #C41632;
+    max-width: 1000px;
+    height: auto;
+    padding: 10px;
+    border-radius: 20px
+}
+
+.img-radius {
+    border-radius: 20px;
 }
