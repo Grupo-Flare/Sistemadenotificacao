@@ -1,0 +1,18 @@
+.d-block {
+    height: 90%;
+    width: 100%;
+    position: -ms-page;
+}
+
+.BemVindo {
+    padding: 35px;
+    background-color: #C41632;
+    text-align: center;
+}
+
+.botaoLogin-regitro {
+    background-color: #05092B;
+    border-radius: 10px;
+    font-size: large;
+    margin-right: 10px;
+}

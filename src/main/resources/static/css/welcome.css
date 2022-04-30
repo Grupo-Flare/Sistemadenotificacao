@@ -1,0 +1,75 @@
+@font-face {
+    font-family: Comfortaa-Bold;
+    src: local(Comfortaa-Bold), url(../fonts/Comfortaa-Bold.ttf);
+}
+
+.comfortaa-bold {
+    font-family: Comfortaa-Bold;
+}
+
+@font-face {
+    font-family: Comfortaa-Light;
+    src: local(Comfortaa-Light), url(../fonts/Comfortaa-Light.ttf);
+}
+
+.comfortaa-light {
+    font-family: Comfortaa-Light;
+}
+
+@media (min-width: 1200px) {
+    .img-fluid {
+        width: 1000px;
+        max-height: 500px;
+    }
+    h6 {
+        padding-left: 228px;
+        padding-right: 228px;
+    }
+    .padd-left {
+        padding-left: 148px;
+    }
+    .margin-left {
+        margin-left: 98px;
+    }
+}
+
+h6 {
+    text-align: justify;
+}
+
+.navbar {
+    background-color: #C41632;
+}
+
+.align-right {
+    margin-left: 450px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.body-color {
+    background-color: #05092B;
+}
+
+.quem-somos {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.como-funciona {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.instituicao {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+footer {
+    background-color: #C41632;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}

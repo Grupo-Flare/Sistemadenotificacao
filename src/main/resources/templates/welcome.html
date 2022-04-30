@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bem-Vindo</title>
+
+    <link rel="shortcut icon" href="images/flare-logo.png">
+    <link rel="stylesheet" type="text/css" href="css/welcome.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/banner.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</head>
+
+<body class="body-color">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="height: 80px;">
+            <a class="navbar-brand padding-left" href="#">
+                <img src="images/flare-logo.png" alt="Flare" width="100" height="70">
+            </a>
+
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#Quem-somos">
+                            <h5 class="comfortaa-bold">Quem Somos?</h5>
+                        </a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#Como-funciona">
+                            <h5 class="comfortaa-bold">Como Funciona?</h5>
+                        </a>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item dropdown">
+                        <h5><a class="nav-link dropdown-toggle text-white comfortaa-bold" href="#Instituicao" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Instituições
+                        </a></h5>
+                        <div class="dropdown-menu text-white" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#emge">EMGE</a>
+                            <a class="dropdown-item" href="#domhelder">DomHelder</a>
+                        </div>
+                    </li>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <button name=botaoLogin value=text class="text-white comfortaa-bold align-right botaoLogin-regitro">Login</button>
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">
+                            <button name=botaoRegistro value=text class="text-white comfortaa-bold  botaoLogin-regitro">Registre-se</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section id="Bem-vindo">
+
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <!-- <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button> -->
+            </div>
+
+            <!-- Mostrar as imagens em slide-->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="images/inovacao-EMGE.png" alt="Tecnologia e inovação - EMGE" class="d-block">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/oab.png" alt="Homenagem Dom Helder pela OAB" class="d-block">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/DOM HELDER.png" alt="DOMHELDER" class="d-block ">
+                </div>
+            </div>
+        </div>
+        <div>
+            <h4 class="text-white comfortaa-bold BemVindo ">Seja Bem-Vind@</h4>
+        </div>
+
+    </section>
+
+    <section id="Quem-somos">
+        <div class="container-fluid text-center quem-somos ">
+            <br>
+            <h4 class="text-white comfortaa-bold ">Quem Somos?</h4><br>
+            <img src="images/grupo.png " alt="grupo " class="img-fluid " style="margin-bottom: 20px; ">
+            <br>
+            <h6 class="text-white comfortaa-light ">
+                <p>Somos um grupo de estudantes de Ciências da Computação, que através de uma proposta de desafio dada pelo professor Presleyson Lima construímos esse site. O desafio consistia em criar um sistema para que a instituição pudesse fazer notificações
+                    urgentes e curtas, como por exemplo: notificar atraso de professor, notificar evento, notificar reunião, notificar inscrições para alguma atividade, informações e alertas sobre cuidados com relação à COVID-19.</p>
+            </h6>
+        </div>
+    </section>
+    <section id="Como-funciona">
+        <div class="container-fluid text-center como-funciona ">
+            <br>
+            <h4 class="text-white comfortaa-bold ">Como Funciona?</h4><br>
+
+            <img src="images/interrogacao.jpg " alt="grupo " class="img-fluid " style="margin-bottom: 20px;">
+
+            <h6 class="text-white comfortaa-light ">
+                <p>Através de um WebPush que irá enviar uma mensagem curta para o seu navegador – Chrome, Firefox, Safari, Opera ou Edge. Esse recurso funciona mesmo depois do usuário estiver fora completamente do site, mas ainda continua com o navegador
+                    aberto. Se estiver com o navegador fechado, a notificação será disparada assim que abrir usuário abrir o navegador. </p>
+                <p>As WebPush funcionam também para dispositivos mobiles, como tablets ou smartphones. Mas elas não funcionam iguais às notificações normais dos mobiles. A notificação somente será disparada se o usuário abrir o navegador no smartphone, por
+                    exemplo.
+                </p>
+            </h6>
+
+
+        </div>
+    </section>
+
+    <section id="Instituicao">
+        <div class="container-fluid text-center instituicao">
+            <h4 class="text-white comfortaa-bold ">Instituições</h4><br>
+            <h6 class="text-white comfortaa-light ">
+                <p>Há envolvimento com duas instituições interligadas, a EMGE e a Dom Helder.</p>
+            </h6>
+
+            <img src="images/lab-informatica-emge.png " alt="domgelder-emge" id="emge" class="img-fluid ">
+            <h6 class="text-white comfortaa-light " style="margin-bottom: 20px; "><small style="text-align: center;">Laboratório de Informática - EMGE</small></h6>
+
+            <h6 class="text-white comfortaa-light"><br>
+                <p> <a href="https://emge.edu.br " target="_blank " rel="noopener noreferrer " class="text-white ">A EMGE é uma escola especializada em Engenharia </a> ligada à rede de Instituições Jesuítas, é inspirada na Pedagogia Inaciana em busca da formação
+                    de excelência.</p>
+                <p>A EMGE promove a formação para o trabalho e a promoção da sustentabilidade socioambiental. As formações técnicas e humanistas têm papeis de grande importância na construção do profissional socialmente corresponsável, dialética que caracteriza
+                    a tradição jesuítica de Educação, com excelência tecnológica.</p>
+            </h6><br>
+
+            <img src="images/biblioteca-domhelder.png " alt="domgelder-biblioteca " id="domhelder" class="img-fluid ">
+            <h6 class="text-white comfortaa-light " style="margin-bottom: 20px; "><small>Biblioteca I - DomHelder</small></h6>
+
+            <h6 class="text-white comfortaa-light ">
+                <p> <a href=https://domhelder.edu.br target="_blank " rel="noopener noreferrer " class="text-white ">A Dom Helder Escola de Direito</a> é ligada à Companhia de Jesus – Ordem Religiosa dos Padres Jesuítas, fundada em 1540, por Santo Inácio
+                    de Loyola.
+                </p>
+                <p>Para Santo Inácio de Loyola, o conhecimento é meio imprescindível para o desenvolvimento humano, social, industrial, econômico e cultural. Para isto, não basta apenas a universalização do acesso ao conhecimento. Mais que isso, é preciso
+                    que haja educação e educação de qualidade. Neste sentido, o paradigma fundamental da Pedagogia de Santo Inácio de Loyola (Pedagogia Inaciana) aplicada pela Dom Helder Escola de Direito, é o “Magis” (o máximo): uma atitude fundamental
+                    que significa buscar fazer e ser o melhor sempre e em tudo.</p>
+                <p>Atualmente, a Companhia de Jesus conta com mais de duzentas instituições de ensino superior presentes em todos os Continentes. No Brasil, destacam-se a PUC-Rio, a Unisinos (Grande Porto Alegre) e a UNICAP (Recife). Além das universidades,
+                    em torno de vinte colégios de ensino básico e fundamental também fazem parte da Rede de Ensino dos Jesuítas no Brasil. Em Belo Horizonte, na área do ensino, destacam-se a Dom Helder Escola de Direito, a FAJE e o Colégio Loyola.</p>
+            </h6>
+
+        </div>
+    </section>
+
+    <footer class="text-white comfortaa-light ">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-sm-8 ">
+                    <h6 class="padd-left">Integrantes do Grupo:</h6>
+
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/caio-henrique-azevedo-ferreira/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Caio Ferreira</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/diego-souza-b3bb73196/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Diego Souza</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/giovanni-evora-aa2b59230/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Giovanni Evora</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/hugooliveirasoares/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Hugo Oliveira</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/kamilahsantos/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Kamilah Santos</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/marcoaureliogr/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Marco Aurélio</a></h6>
+                    <h6 class="padd-left"><a href="https://www.linkedin.com/in/matheus-caldeira-94085019a/" class="text-white comfortaa-light" target="_blank" rel="noopener noreferrer">Matheus Caldeira</a></h6>
+                </div>
+                <div class="col-sm-4 ">
+                    <img src="images/flare-logo.png" alt="flare-logo" class="img-fluid margin-left" style="max-width: 200px; max-height: auto;">
+                </div>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
