@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href = "bootstrap.css">
     <link rel="icon" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\2.png">
-    <title>Flare | Histórico de Notificação</title>
+    <title>Flare | Canais de Comunicação </title>
 
   </head>
 
@@ -41,7 +41,7 @@
         <li><a class="dropdown-item itens-menu" href="#">Eventos</a></li>
         <li><hr class="dropdown-divider vermelho"></li> 
 
-        <div class="esconder">
+        <div class="esconder ">
 
           <span class = "titulos-menu ">Navegação</span>
           <li><hr class="dropdown-divider vermelho"></li>
@@ -82,28 +82,28 @@
 
     <main>
         <section class="principal">
-            <div class="box">
+            <h1 class="titulo-principal">Canais de Notificação</h1>
+         
+            <div class="imagemImput">
 
-              <a href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacao.html"><img class="refresh" src="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\refresh.png" ></a>
-                <h1 class="titulo-principal">Histórico de Notificações </h1> 
-               <form>
-                 
-                 <select>
-                  <option>Todos</option>
-                  <option>Ciência da Computação</option>
-                  <option>Arquitetura</option>
-                  <option>Direito</option>
-                  <option>Engenharia Civil</option>
-                </select>
-
-                <input type="submit" value="Não lidas" class="filtro">
-                
-               </form>
+                <input type="search" id="pesquisar" class="filtro" required placeholder="Pesquisar canais" >
+                <button><img src="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\search-interface-symbol.png" width="16px"></button>
+                  
             </div>
         </section>
+
+        <section>
+
+            <!-- HUGO COLOCAR A CHAMADA DO BANCO DE DADOS AQ -->
+        </section>
+
+        <div class="texto">
+
+            <p>Ao confirmar o cancelamento dos alertas, você concorda em paralizar o recebimento do conjunto de notificações selecionado, responsabilizando-se integralmente por perdas ou falta de informações não recebidas. </p>
+        </div>
+
     </main>
 
-            
 
 <footer>
   <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
@@ -146,61 +146,102 @@
     user-select: none;
   }
 
-    footer a:hover{
+  .imagemImput{
+      margin: 30px;
+      width: 30%;
+      height: 40px;
 
-      text-decoration: underline;
-      color: #05092B;
-      }
-  
-  .refresh{
-    float: right;
-    position: relative;
-    padding: 10px 10px;
   }
 
-  .box{
-    width: 100%;
-    height: 120px;
-    left: 0px;
-    top: 74px;
-    background: rgba(5, 9, 43, 0.1);
-    box-shadow: 0px 0px 20px #000000;
+  .imagemImput input[type='search']{
+      /* background: transparent; */
+      float: left;
+      width: 80%;
+      height: 100%;
+      border: none;
+
   }
 
-  .box h1{
-      color: white;
-      text-align: center;
-  }
+  .imagemImput button{
 
-  .box select, .filtro{
-    box-shadow:  10px 10px 20px #000000;
-    margin: 20px;
-    text-align: center;
-    color: white;
-    width: 150px;
-    height: 30px;
-    background: #6D0606;
-    border-radius: 10px;
     border: none;
-  }
+    background: #cccccc;
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-radius:0px 8px 8px 0px;
 
-  .esconder {
-    display: none;
-    
   }
 
   button{
-    margin: 50px ;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+
   }
 
-  form label{
-    margin: 30px;
+    .filtro{
+  
+    text-align: center;
+    background: #D8D6D6;
+    border-radius:8px 0px 0px 8px;
+    border: none;
+    box-shadow:  10px 10px 20px #000000;
+
+  }
+      
+  .esconder{
+    display: none;
+  }
+  
+  .titulo-principal{
+  font-size: 32px;
+  line-height: 36px;
+  text-align: center;
+  margin-top: 30px;
+  /* text-shadow: 2px 2px 2px rgba(204, 174, 27, 0.811); */
+  color: white;
   }
 
   .principal p{
-    text-align: left;
-    margin: 16px;
+    font-size: 16px;
+      line-height: 18px;
+      margin: 20px;
+      color: white;
+      text-align: center
   }
+
+  .texto p{
+      color: white;
+      margin: 20px;
+      position: fixed;
+      bottom: 120px;
+     
+  }
+
+  form label {
+  display:block;
+  font-size: 20px;
+  margin: 20px;
+  margin-left: 20% ;
+  color: white
+  }
+
+  button + p{
+  padding-bottom: 200px;
+  color: white
+  }
+
+
+  footer a:hover{
+
+  text-decoration: underline;
+  color: #05092B;
+  }
+
+  /* ESTILO DP CAIO */
 
   .texto-titulo-header{
   color: white !important;
@@ -212,6 +253,7 @@
 
   *{
       font-family: 'Comfortaa', cursive;
+    
   }
 
   p, div, span{
@@ -233,6 +275,7 @@
     background-color: #19C416;
     color: white;
     transform: scale(1.2);
+    border-radius: 8px;
   }
 
   body{
@@ -288,28 +331,51 @@
 
   @media (min-width: 768px) {
 
-  .bd-placeholder-img-lg {
+    .bd-placeholder-img-lg {
     font-size: 3.5rem;
-  }
+    }
 
-  }
+    }
 
-  @media(max-width:768px) {
+    @media(max-width:768px) {
 
-  .menu-footer{
+    .menu-footer{
     display: none;
-  }
+    }
 
-  .texto-titulo-header{
-  margin-left: 0px !important;
-  }
+    .texto-titulo-header{
+    margin-left: 0px !important;
+    }
 
-  .esconder{
-  display: block;
-  }
+    .esconder {
+    display: block;
 
-  }
+    }
 
+    .imagemImput button {
+    float: none;
+    width: 50px;
+    }
+
+    .imagemImput{
+    width: 250px;
+    }
+
+    form label{
+    margin: 30px;
+    }
+
+    .principal p{
+    text-align: left;
+    margin: 16px;
+    }
+
+    .texto p{
+        bottom: 20px;
+    }
+
+    }
 
 </style>
+
 
