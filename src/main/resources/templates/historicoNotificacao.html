@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href = "bootstrap.css">
     <link rel="icon" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\2.png">
-    <title>Flare | Preferências de Notificação</title>
+    <title>Flare | Histórico de Notificação</title>
 
   </head>
 
@@ -41,7 +41,7 @@
         <li><a class="dropdown-item itens-menu" href="#">Eventos</a></li>
         <li><hr class="dropdown-divider vermelho"></li> 
 
-        <div class="esconder ">
+        <div class="esconder">
 
           <span class = "titulos-menu ">Navegação</span>
           <li><hr class="dropdown-divider vermelho"></li>
@@ -82,25 +82,28 @@
 
     <main>
         <section class="principal">
-            <h1 class="titulo-principal">Preferências de notificação</h1>
+            <div class="box">
 
-            <p>Selecione abaixo as suas prefêrencias de notificação para receber comunicados importantas da EMGE e Dom Helder Escola de Direito</p>
+              <a href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacao.html"><img class="refresh" src="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\refresh.png" ></a>
+                <h1 class="titulo-principal">Histórico de Notificações </h1> 
+               <form>
+                 
+                 <select>
+                  <option>Todos</option>
+                  <option>Ciência da Computação</option>
+                  <option>Arquitetura</option>
+                  <option>Direito</option>
+                  <option>Engenharia Civil</option>
+                </select>
 
-            <form >
-                <fieldset>
-                   
-                    <label for="radio-push"><input type="radio" name="Preferencia" value="push" id="radio-push"> Quero receber as notificações via push notification (notificações na barra de ferramentas do smartphone ou do computador).</label>
-                    
-                    <label for="radio-teams"><input type="radio" name="Preferencia" value="teams" id="radio-teams"> Quero receber as notificações via mensagens no Teams.</label>
-                    
-                    <label for="radio-email"><input type="radio" name="Preferencia" value="email" id="radio-email" checked> Quero receber as notificações via Email</label>
-                </fieldset>
-
-            </form>
-
-            <button type="submit" onclick="Evento()">Confirmar</button>
-            <p>Ao confirmar suas preferências de notificação, você concorda em receber as notificações até cancelar pelo aplicativo.</p>
+                <input type="submit" value="Não lidas" class="filtro">
+                
+               </form>
+            </div>
         </section>
+    </main>
+
+            
 
 <footer>
   <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
@@ -143,82 +146,45 @@
     user-select: none;
   }
 
-  .esconder{
-    display: none;
-  }
+    footer a:hover{
+
+      text-decoration: underline;
+      color: #05092B;
+      }
   
-  .titulo-principal{
-  font-size: 32px;
-  line-height: 36px;
-  text-align: center;
-  margin-top: 30px;
-  text-shadow: 2px 2px 2px rgba(204, 174, 27, 0.811);
-  color: white;
+  .refresh{
+    float: right;
+    position: relative;
+    padding: 10px 10px;
   }
 
+  .box{
+    width: 100%;
+    height: 120px;
+    left: 0px;
+    top: 74px;
+    background: rgba(5, 9, 43, 0.1);
+    box-shadow: 0px 0px 20px #000000;
+  }
 
-  .principal p{
-    font-size: 16px;
-      line-height: 18px;
-      margin: 20px;
+  .box h1{
       color: white;
-      text-align: center
+      text-align: center;
   }
 
-  form label {
-  display:block;
-  font-size: 20px;
-  margin: 20px;
-  margin-left: 20% ;
-  color: white
-  }
-
-  button + p{
-  padding-bottom: 200px;
-  color: white
-  }
-
-  button{
-  background: #C41632;
-  border-radius: 5px;
-  width: 266px;
-  height: 46px;
-  color: #ffffff;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 22px;
-  text-align: center;
-  margin: 20px 40%;
-
-
-  }
-
-  footer a:hover{
-
-  text-decoration: underline;
-  color: #05092B;
-  }
-
-  @media (min-width: 768px) {
-
-    .bd-placeholder-img-lg {
-      font-size: 3.5rem;
-    }
-
-  }
-
-  @media(max-width:768px) {
-
-    .menu-footer{
-      display: none;
-    }
-
-    .texto-titulo-header{
-  margin-left: 0px !important;
+  .box select, .filtro{
+    box-shadow:  10px 10px 20px #000000;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    height: 30px;
+    background: #6D0606;
+    border-radius: 10px;
   }
 
   .esconder {
-    display: block;
+    display: none;
     
   }
 
@@ -233,8 +199,6 @@
   .principal p{
     text-align: left;
     margin: 16px;
-  }
-
   }
 
   .texto-titulo-header{
@@ -321,10 +285,30 @@
     color: white !important;
   }
 
+  @media (min-width: 768px) {
+
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+
+  }
+
+  @media(max-width:768px) {
+
+  .menu-footer{
+    display: none;
+  }
+
+  .texto-titulo-header{
+  margin-left: 0px !important;
+  }
+
+  .esconder{
+  display: block;
+  }
+
+  }
+
+
 </style>
 
-<script>
-    function Evento(){
-        alert('Preferência de notificação selecionada')
-    }
-</script>
