@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+    footer a:hover{
+
+      text-decoration: underline;
+      color: #05092B;
+      }
+
+      .refresh{
+    float: right;
+    position: relative;
+    padding: 10px 10px;
+    margin: 10px 15px;
+  }
+
+  .box{
+    width: 100%;
+    height: 130px;
+    left: 0px;
+    top: 74px;
+    background: rgba(5, 9, 43, 0.1);
+    box-shadow: 0px 0px 20px #000000;
+  }
+
+  .box h1{
+      color: white;
+      text-align: center;
+      padding: 10px;
+  }
+
+  .box select, .filtro{
+    box-shadow:  10px 10px 20px #000000;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    width: 150px;
+    height: 30px;
+    background: #6D0606;
+    border-radius: 10px;
+    border: none;
+  }
+
+  .esconder {
+    display: none;
+
+  }
+
+  button{
+    margin: 50px ;
+  }
+
+  form label{
+    margin: 30px;
+  }
+
+  .principal p{
+    text-align: left;
+    margin: 16px;
+  }
+
+  .texto-titulo-header{
+  color: white !important;
+  font-size: 30px;
+  font-weight: bold;
+  float: middle;
+  margin-left: 140px;
+  }
+
+  *{
+      font-family: 'Comfortaa', cursive;
+  }
+
+  p, div, span{
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  h1{
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  h2{
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  button:hover{
+    background-color: #19C416;
+    color: white;
+    transform: scale(1.2);
+  }
+
+  body{
+    background-color: #05092B;
+  }
+
+  .foto-perfil{
+    border-width: 100px !important;
+    border-color: white;
+  }
+
+  .footer-site{
+   background-color: #C41632 !important;
+  }
+
+  .icone-rodape{
+    margin-left: 20px;
+  }
+
+  a svg:hover{
+    opacity: 70%;
+  }
+
+  .icone-rodape2{
+    margin-left: 10px;
+  }
+
+  .vermelho{
+    color: #C41632;
+  }
+
+  .azul-escuro{
+    background-color: #05092A;
+  }
+
+  .alinha-centro{
+    text-align: center;
+  }
+
+  .titulos-menu{
+    color: white;
+    font-size: 20px;
+  }
+
+  .itens-menu{
+    color: white;
+  }
+
+  .itens-menu:hover{
+    background-color: #19C416;
+    color: white !important;
+  }
+
+  @media (min-width: 768px) {
+
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+
+  }
+
+  @media(max-width:768px) {
+
+  .menu-footer{
+    display: none;
+  }
+
+  .texto-titulo-header{
+  margin-left: 0px !important;
+  }
+
+  .esconder{
+  display: block;
+  }
+
+  }
