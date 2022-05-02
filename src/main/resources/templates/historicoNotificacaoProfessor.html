@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href = "bootstrap.css">
     <link rel="icon" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\static\images\2.png">
-    <title>Flare | Histórico de Notificação</title>
+    <title>Flare | Histórico de Notificação do Professor</title>
 
   </head>
 
@@ -49,11 +49,11 @@
           <li><hr class="dropdown-divider vermelho"></li>
 
         
-          <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacao.html" aria-current="page ";>Histórico</a></li>
+          <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html" aria-current="page ";>Histórico</a></li>
           <li><hr class="dropdown-divider vermelho"></li>
 
 
-          <li><a class="dropdown-item itens-menu" href="#" aria-current="page";>Notificação</a></li>
+          <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html" aria-current="page";>Canais</a></li>
           <li><hr class="dropdown-divider vermelho"></li>
         </div>
         
@@ -97,20 +97,23 @@
                 </select>
 
                 <input type="submit" value="Não lidas" class="filtro">
+                <input type="submit" value="Ciência da .." class="filtro">
+                <input type="submit" value="Engenharia ..." class="filtro">
+                
                 
                </form>
             </div>
         </section>
     </main>
 
-            
-
+    <a href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\enviarNotificacao.html"><button class="butaoNotificacao">Nova Notificação</button></a>
+           
 <footer>
   <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
     <div class="container-fluid">
         <ul class="navbar-nav container menu-footer">
           <li class="nav-item col">
-            <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacao.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape2" height="48" width="48"><path d="M26 42Q22.15 42 18.65 40.425Q15.15 38.85 12.55 36L14.7 33.85Q16.95 36.25 19.85 37.625Q22.75 39 26 39Q32.25 39 36.625 34.6Q41 30.2 41 23.95Q41 17.7 36.625 13.35Q32.25 9 26 9Q19.6 9 15.3 13.425Q11 17.85 11 24.75L15.35 20.4L17.5 22.55L9.55 30.5L1.55 22.5L3.7 20.35L8 24.65Q8 20.65 9.4 17.225Q10.8 13.8 13.225 11.3Q15.65 8.8 18.95 7.4Q22.25 6 26 6Q29.75 6 33.025 7.425Q36.3 8.85 38.725 11.275Q41.15 13.7 42.575 16.975Q44 20.25 44 24Q44 27.75 42.575 31.025Q41.15 34.3 38.725 36.725Q36.3 39.15 33.025 40.575Q29.75 42 26 42ZM32.05 32.15 24.35 24.55V13.85H27.35V23.3L34.2 30Z"/></svg>
+            <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape2" height="48" width="48"><path d="M26 42Q22.15 42 18.65 40.425Q15.15 38.85 12.55 36L14.7 33.85Q16.95 36.25 19.85 37.625Q22.75 39 26 39Q32.25 39 36.625 34.6Q41 30.2 41 23.95Q41 17.7 36.625 13.35Q32.25 9 26 9Q19.6 9 15.3 13.425Q11 17.85 11 24.75L15.35 20.4L17.5 22.55L9.55 30.5L1.55 22.5L3.7 20.35L8 24.65Q8 20.65 9.4 17.225Q10.8 13.8 13.225 11.3Q15.65 8.8 18.95 7.4Q22.25 6 26 6Q29.75 6 33.025 7.425Q36.3 8.85 38.725 11.275Q41.15 13.7 42.575 16.975Q44 20.25 44 24Q44 27.75 42.575 31.025Q41.15 34.3 38.725 36.725Q36.3 39.15 33.025 40.575Q29.75 42 26 42ZM32.05 32.15 24.35 24.55V13.85H27.35V23.3L34.2 30Z"/></svg>
               <br>Histórico</a>
           </li>
           <li class="nav-item col">
@@ -119,8 +122,8 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape" height="48" width="48"><path d="M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z"/></svg>
-              <br>Notificação</a>
+            <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" height="48" width="48"><path d="M12 28.05H27.65V25.05H12ZM12 21.55H36V18.55H12ZM12 15.05H36V12.05H12ZM4 44V7Q4 5.85 4.9 4.925Q5.8 4 7 4H41Q42.15 4 43.075 4.925Q44 5.85 44 7V33Q44 34.15 43.075 35.075Q42.15 36 41 36H12ZM7 36.75 10.75 33H41Q41 33 41 33Q41 33 41 33V7Q41 7 41 7Q41 7 41 7H7Q7 7 7 7Q7 7 7 7ZM7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7V33Q7 33 7 33Q7 33 7 33V36.75Z"/></svg>
+              <br>Canais</a>
           </li>
         </ul>
       </div>
@@ -152,7 +155,7 @@
       color: #05092B;
       }
   
-      .refresh{
+  .refresh{
     float: right;
     position: relative;
     padding: 10px 10px;
@@ -184,6 +187,22 @@
     background: #6D0606;
     border-radius: 10px;
     border: none;
+  }
+
+  .butaoNotificacao{
+
+    box-shadow:  10px 10px 20px #000000;
+    margin: 20px;
+    text-align: center;
+    color: white;
+    width: 180px;
+    height: 30px;
+    background: #1199CC;
+    border-radius: 5px;
+    border: none;
+    position: fixed;
+    bottom: 120px;
+
   }
 
   .esconder {
@@ -235,6 +254,10 @@
     background-color: #19C416;
     color: white;
     transform: scale(1.2);
+  }
+
+  .butaoNotificacao:hover{
+    background-color: #1199CC;
   }
 
   body{
@@ -310,6 +333,10 @@
   display: block;
   }
 
+  .butaoNotificacao{
+    bottom: 20px;
+  
+  }
   }
 
 
