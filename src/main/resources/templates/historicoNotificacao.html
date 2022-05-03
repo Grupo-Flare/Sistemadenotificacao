@@ -35,13 +35,18 @@
                 </form>
             </div>
         </section>
-    </main>
 
-    <div th:each="notificacao : ${notificacoes}">
-        <span th:text="${notificacao.title}"></span>
-        <span th:text="${notificacao.message}"></span>
-        <span th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
-    </div>
+        <!-- Renderiza cada notificação vindo do backend -->
+        <!-- TODO: Deixar essa div com o estilo igual do figma -->
+        <div th:each="notificacao : ${notificacoes}" class="notificacao">
+            <!-- Não precisa ser um span, pode ser qualquer elemento, o importante de manter é o th:text -->
+            <span th:text="${notificacao.title}"></span>
+            <span th:text="${notificacao.message}"></span>
+            <span th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
+            <span th:text="${notificacao.category.name}"></span>
+        </div>
+
+    </main>
 
 </body>
 
