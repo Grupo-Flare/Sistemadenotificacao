@@ -32,9 +32,9 @@ public class SubscriptionService {
             subscriptionRepository.save(pushSubscription);
             // Envia uma notificação de confirmação
             notificationSenderService.sendNotificationToOneUser(
-                    new Note("Confirmando", "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app", ""),
+                    new Note("Confirmando", "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app", "", null),
                     pushSubscription);
-        } catch (PersistenceException e){
+        } catch (PersistenceException e) {
             e.printStackTrace();
             throw new ApiErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
         } catch (FirebaseMessagingException e) {

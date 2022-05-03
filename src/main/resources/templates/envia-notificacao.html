@@ -9,7 +9,7 @@
 </head>
 <body>
    
-    <form th:object="${notificationDTO}" action="notification/send" method="post">
+    <form th:object="${notificationDTO}" action="/notification/send" method="post">
         <div>
             <label for="titulo">Titulo:</label>
             <input th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo">
@@ -24,6 +24,11 @@
         <div th:errors="*{message}" class="invalid-feedback">
             Erros da mensagem
         </div>
+        <div>
+            <label>Categoria:</label>
+            <input th:field="*{category}">
+        </div>
+
         <button type="submit">Enviar notificação</button>
     </form>
 
