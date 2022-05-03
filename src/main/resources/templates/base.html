@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:fragment="head(title,links)">
+
+    <title th:replace="${title}">Template base</title>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="bootstrap.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <th:block th:replace="${links}" />
+
+
+</head>
+
+<header th:fragment="header" class="py-3 mb-3 border-bottom" style="background-color: #C41632;">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+        <div class="dropdown ">
+            <a href="#"
+                class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-light text-decoration-none dropdown-toggle"
+                id="dropdownNavLink" data-bs-toggle="dropdown" aria-expanded="false">
+
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="white"
+                    enable-background="new 0 0 24 24" viewBox="0 0 24 24">
+                    <path
+                        d="M5 7h14c.6 0 1-.4 1-1s-.4-1-1-1H5C4.4 5 4 5.4 4 6S4.4 7 5 7zM5 13h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 13 5 13zM5 19h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 19 5 19z" />
+                </svg>
+
+            </a>
+            <ul class="dropdown-menu text-small shadow azul-escuro alinha-centro" aria-labelledby="dropdownNavLink">
+                <span class="titulos-menu">Principais</span>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <li><a class="dropdown-item itens-menu" href="https://emge.edu.br/" aria-current="page">Portal EMGE</a>
+                </li>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <li><a class="dropdown-item itens-menu" href="https://domhelder.edu.br/">Portal Dom</a></li>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <span class="titulos-menu ">Cursos</span>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <li><a class="dropdown-item itens-menu" href="#">Ciências da Computação</a></li>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <span class="titulos-menu">Favoritos</span>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+                <li><a class="dropdown-item itens-menu" href="#">Eventos</a></li>
+                <li>
+                    <hr class="dropdown-divider vermelho">
+                </li>
+
+                <div class="esconder">
+
+                    <span class="titulos-menu ">Navegação</span>
+                    <li>
+                        <hr class="dropdown-divider vermelho">
+                    </li>
+                    <li><a class="dropdown-item itens-menu" href="#" aria-current="page">Home</a></li>
+                    <li>
+                        <hr class="dropdown-divider vermelho">
+                    </li>
+
+
+                    <li><a class="dropdown-item itens-menu" href="/historicoNotificacao.html" aria-current="page "
+                            ;>Histórico</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider vermelho">
+                    </li>
+
+
+                    <li><a class="dropdown-item itens-menu" href="#" aria-current="page" ;>Notificação</a></li>
+                    <li>
+                        <hr class="dropdown-divider vermelho">
+                    </li>
+                </div>
+
+            </ul>
+        </div>
+
+        <div class="d-flex align-items-center">
+
+            <div class="w-100 me-2">
+
+                <span class="texto-titulo-header align-items-center">Flare</span>
+
+            </div>
+
+
+            <div class="flex-shrink-0 dropdown">
+                <img src="/images/presleyson.png" alt="Foto de perfil" width="50" height="50" class="rounded-circle">
+            </div>
+        </div>
+    </div>
+</header>
+
+<footer th:fragment="footer">
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
+        <div class="container-fluid">
+            <ul class="navbar-nav container menu-footer">
+                <li class="nav-item col">
+                    <a class="nav-link active" aria-current="page" href="/templates/historicoNotificacao.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="icone-rodape2" height="48"
+                            width="48">
+                            <path
+                                d="M26 42Q22.15 42 18.65 40.425Q15.15 38.85 12.55 36L14.7 33.85Q16.95 36.25 19.85 37.625Q22.75 39 26 39Q32.25 39 36.625 34.6Q41 30.2 41 23.95Q41 17.7 36.625 13.35Q32.25 9 26 9Q19.6 9 15.3 13.425Q11 17.85 11 24.75L15.35 20.4L17.5 22.55L9.55 30.5L1.55 22.5L3.7 20.35L8 24.65Q8 20.65 9.4 17.225Q10.8 13.8 13.225 11.3Q15.65 8.8 18.95 7.4Q22.25 6 26 6Q29.75 6 33.025 7.425Q36.3 8.85 38.725 11.275Q41.15 13.7 42.575 16.975Q44 20.25 44 24Q44 27.75 42.575 31.025Q41.15 34.3 38.725 36.725Q36.3 39.15 33.025 40.575Q29.75 42 26 42ZM32.05 32.15 24.35 24.55V13.85H27.35V23.3L34.2 30Z" />
+                        </svg>
+                        <br>Histórico</a>
+                </li>
+                <li class="nav-item col">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" height="48" width="48">
+                            <path
+                                d="M8 42V18L24.1 6L40 18V42H28.3V27.75H19.65V42ZM11 39H16.65V24.75H31.3V39H37V19.5L24.1 9.75L11 19.5ZM24 24.35Z" />
+                        </svg>
+                        <br>Home
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="white" class="icone-rodape" height="48"
+                            width="48">
+                            <path
+                                d="M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z" />
+                        </svg>
+                        <br>Notificação</a>
+                </li>
+            </ul>
+        </div>
+        </div>
+    </nav>
+</footer>
+
+</html>
