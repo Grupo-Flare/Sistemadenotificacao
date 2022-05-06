@@ -83,17 +83,25 @@
         <h1 class="titulo-principal">Nova Notificação </h1> 
         <div class="box">
 
-           <form>
+          <form>
             <fieldset>
               <h2><label>1. Audiência</label></h2>
-                    
-                  <label for="radio-allUser"><input type="radio" name="Preferencia" value="allUser" id="radio-allUser"> Enviar para todos os usuarios.</label>
-                  
-                  <label for="radio-especifica"><input type="radio" name="Preferencia" value="especifica" id="radio-especifica">Enviar para uma categoria especifica.</label>
-                  
+    
+              <label for="radio-allUser"><input type="radio" name="Preferencia" value="allUser" id="radio-allUser"> Enviar
+                para todos os usuarios.</label>
+    
+              <label for="categoria"><input type="radio" name="Preferencia" value="categoria" id="categoria">Enviar para uma
+                categoria especifica.</label>
+              <div>
+              <select name="mostrar" value="mostrar" id="mostrar">
+                <option>Selecionar</option>
+                <option>Direito</option>
+              </select>
+              </div>
+    
             </fieldset>
-            
-           </form>
+    
+          </form>
         </div>
        
 
@@ -201,6 +209,19 @@ $(document).ready(function() {
     }
   });
 }); 
+
+$(document).ready(function () {
+    $('#mostrar').hide();
+    // aqui um seletor por name, para pegar todos os radio buttons "devweb"
+    $('input:radio[name="Preferencia"]').change(function () {
+      // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
+      if ($(this).val() == "categoria") {
+        $('#mostrar').show();
+      } else {
+        $('#mostrar').hide();
+      }
+    });
+  }); 
 </script>
 
 
@@ -246,6 +267,19 @@ $(document).ready(function() {
     height: 200px;
     margin-bottom:100px ;
   }   
+
+  
+  .box{
+    height: 200px;
+  }
+
+  .box select{
+    margin: 20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+   
+  }
   
 
   .CampoNotificacao{
@@ -470,7 +504,7 @@ $(document).ready(function() {
       }
 
       .box{
-        height: 200px;
+        height: 300px;
       }
 
       button{

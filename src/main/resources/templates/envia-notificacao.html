@@ -1,240 +1,339 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
-    <head >
-        <!-- Required meta tags -->
-    
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
-        <!-- Bootstrap CSS -->
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <link href = "bootstrap.css">
-        <link rel="icon" href="/images/2.png">
-        <title>Flare | Envio de Notificação</title>
-    
-      </head>
+
+<head>
+  <!-- Required meta tags -->
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="bootstrap.css">
+  <link rel="icon" href="/images/2.png">
+  <title>Flare | Envio de Notificação Administrador</title>
+
+</head>
+
 <body>
 
-    <header class="py-3 mb-3 border-bottom" style = "background-color: #C41632;">
-        <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
-          <div class="dropdown ">
-            <a href="#" class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-light text-decoration-none dropdown-toggle" id="dropdownNavLink" data-bs-toggle="dropdown" aria-expanded="false">
-              
-              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill = "white" enable-background="new 0 0 24 24" viewBox="0 0 24 24"><path d="M5 7h14c.6 0 1-.4 1-1s-.4-1-1-1H5C4.4 5 4 5.4 4 6S4.4 7 5 7zM5 13h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 13 5 13zM5 19h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 19 5 19z"/></svg>
-      
+  <header class="py-3 mb-3 border-bottom" style="background-color: #C41632;">
+    <div class="container-fluid d-grid gap-3 align-items-center" style="grid-template-columns: 1fr 2fr;">
+      <div class="dropdown ">
+        <a href="#"
+          class="d-flex align-items-center col-lg-4 mb-2 mb-lg-0 link-light text-decoration-none dropdown-toggle"
+          id="dropdownNavLink" data-bs-toggle="dropdown" aria-expanded="false">
+
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" fill="white" enable-background="new 0 0 24 24"
+            viewBox="0 0 24 24">
+            <path
+              d="M5 7h14c.6 0 1-.4 1-1s-.4-1-1-1H5C4.4 5 4 5.4 4 6S4.4 7 5 7zM5 13h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 13 5 13zM5 19h14c.6 0 1-.4 1-1s-.4-1-1-1H5c-.6 0-1 .4-1 1S4.4 19 5 19z" />
+          </svg>
+
+        </a>
+        <ul class="dropdown-menu text-small shadow azul-escuro alinha-centro" aria-labelledby="dropdownNavLink">
+          <span class="titulos-menu">Principais</span>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <li><a class="dropdown-item itens-menu" href="https://emge.edu.br/" aria-current="page">Portal EMGE</a></li>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <li><a class="dropdown-item itens-menu" href="https://domhelder.edu.br/">Portal Dom</a></li>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <span class="titulos-menu ">Cursos</span>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <li><a class="dropdown-item itens-menu" href="#">Ciências da Computação</a></li>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <span class="titulos-menu">Favoritos</span>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+          <li><a class="dropdown-item itens-menu" href="#">Eventos</a></li>
+          <li>
+            <hr class="dropdown-divider vermelho">
+          </li>
+
+          <div class="esconder">
+
+            <span class="titulos-menu ">Navegação</span>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+            <li><a class="dropdown-item itens-menu" href="#" aria-current="page">Home</a></li>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+
+            <!-- mudar link para a pagina certo do adm e não do professor -->
+            <li><a class="dropdown-item itens-menu"
+                href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html"
+                aria-current="page " ;>Histórico</a></li>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+
+            <li><a class="dropdown-item itens-menu"
+                href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\gerenciandoUsuarios.html"
+                aria-current="page " ;>Usuários</a></li>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+
+            <li><a class="dropdown-item itens-menu"
+                href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\envia-notificacao.html"
+                aria-current="page " ;>Notificação</a></li>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+
+            <!-- mudar link para a pagina certo do adm e não do professor -->
+            <li><a class="dropdown-item itens-menu"
+                href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html"
+                aria-current="page" ;>Canais</a></li>
+            <li>
+              <hr class="dropdown-divider vermelho">
+            </li>
+          </div>
+
+        </ul>
+      </div>
+
+      <div class="d-flex align-items-center">
+
+        <div class="w-100 me-2">
+
+          <span class="texto-titulo-header align-items-center">Cristiano</span> <!-- deixar dinamico -->
+
+        </div>
+
+
+        <div class="flex-shrink-0 dropdown">
+          <img src="/images/presleyson.png" alt="Foto de perfil" width="50" height="50" class="rounded-circle">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="principal">
+    <h1 class="titulo-principal">Nova Notificação </h1>
+    <div class="box">
+
+      <form>
+        <fieldset>
+          <h2><label>1. Audiência</label></h2>
+
+          <label for="radio-allUser"><input type="radio" name="Preferencia" value="allUser" id="radio-allUser"> Enviar
+            para todos os usuarios.</label>
+
+          <label for="categoria"><input type="radio" name="Preferencia" value="categoria" id="categoria">Enviar para uma
+            categoria especifica.</label>
+          <div>
+          <select name="mostrar" value="mostrar" id="mostrar">
+            <option>Selecionar</option>
+            <option>Direito</option>
+          </select>
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+
+
+    <div class="box1">
+
+      <form th:object="${notificationDTO}" action="/notification/send" method="post">
+        <fieldset>
+          <h2><label>2. Notificação</label></h2>
+
+          <div>
+            <label for="titulo">Titulo de notificação:</label>
+            <input class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo "
+              placeholder="Título">
+          </div>
+          <div th:errors="*{title}" class="invalid-feedback">
+            Erros do titulo
+          </div>
+          <div>
+            <label for="msg">Mensagem:</label>
+            <textarea class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30"
+              rows="10" placeholder="Mensagem"></textarea>
+          </div>
+          <div th:errors="*{message}" class="invalid-feedback">
+            Erros da mensagem
+          </div>
+          <div>
+            <label>Imagem:</label>
+            <input class="CampoNotificacao" th:field="*{category}" placeholder="Adicione uma URL ">
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+
+    <div class="box2">
+
+      <form>
+        <fieldset>
+          <h2><label>3. Agendar Entrega</label></h2>
+
+          <label for="dataTempo"><input type="radio" name="novanotificacao" value="dataTempo" id="dataTempo"> Enviar
+            agora.</label>
+
+          <label for="especifica1"><input type="radio" name="novanotificacao" value="especifica1"
+              id="especifica1">Especificar tempo.</label>
+          <div>
+            <input type="date" name="revele" value="revele" id="revele">
+            <input type="time" name="revele1" value="revele" id="revele1">
+          </div>
+
+        </fieldset>
+
+      </form>
+    </div>
+
+    <button class="botao" type="submit">Enviar</button>
+  </section>
+
+  <footer>
+    <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
+      <div class="container-fluid">
+        <ul class="navbar-nav container menu-footer">
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page"
+              href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html"><svg
+                xmlns="http://www.w3.org/2000/svg" fill="white" class="icone-rodape2" height="48" width="48">
+                <path
+                  d="M26 42Q22.15 42 18.65 40.425Q15.15 38.85 12.55 36L14.7 33.85Q16.95 36.25 19.85 37.625Q22.75 39 26 39Q32.25 39 36.625 34.6Q41 30.2 41 23.95Q41 17.7 36.625 13.35Q32.25 9 26 9Q19.6 9 15.3 13.425Q11 17.85 11 24.75L15.35 20.4L17.5 22.55L9.55 30.5L1.55 22.5L3.7 20.35L8 24.65Q8 20.65 9.4 17.225Q10.8 13.8 13.225 11.3Q15.65 8.8 18.95 7.4Q22.25 6 26 6Q29.75 6 33.025 7.425Q36.3 8.85 38.725 11.275Q41.15 13.7 42.575 16.975Q44 20.25 44 24Q44 27.75 42.575 31.025Q41.15 34.3 38.725 36.725Q36.3 39.15 33.025 40.575Q29.75 42 26 42ZM32.05 32.15 24.35 24.55V13.85H27.35V23.3L34.2 30Z" />
+              </svg>
+              <br>Histórico</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page"
+              href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\gerenciandoUsuarios.html"><svg
+                xmlns="http://www.w3.org/2000/svg" fill="white" class="icone-rodape" height="48" width="48">
+                <path
+                  d="M24 23.95Q20.7 23.95 18.6 21.85Q16.5 19.75 16.5 16.45Q16.5 13.15 18.6 11.05Q20.7 8.95 24 8.95Q27.3 8.95 29.4 11.05Q31.5 13.15 31.5 16.45Q31.5 19.75 29.4 21.85Q27.3 23.95 24 23.95ZM8 40V35.3Q8 33.4 8.95 32.05Q9.9 30.7 11.4 30Q14.75 28.5 17.825 27.75Q20.9 27 24 27Q27.1 27 30.15 27.775Q33.2 28.55 36.55 30Q38.1 30.7 39.05 32.05Q40 33.4 40 35.3V40ZM11 37H37V35.3Q37 34.5 36.525 33.775Q36.05 33.05 35.35 32.7Q32.15 31.15 29.5 30.575Q26.85 30 24 30Q21.15 30 18.45 30.575Q15.75 31.15 12.6 32.7Q11.9 33.05 11.45 33.775Q11 34.5 11 35.3ZM24 20.95Q25.95 20.95 27.225 19.675Q28.5 18.4 28.5 16.45Q28.5 14.5 27.225 13.225Q25.95 11.95 24 11.95Q22.05 11.95 20.775 13.225Q19.5 14.5 19.5 16.45Q19.5 18.4 20.775 19.675Q22.05 20.95 24 20.95ZM24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45ZM24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Z" />
+              </svg>
+              <br>Usuário</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" fill="white"
+                height="48" width="48">
+                <path
+                  d="M8 42V18L24.1 6L40 18V42H28.3V27.75H19.65V42ZM11 39H16.65V24.75H31.3V39H37V19.5L24.1 9.75L11 19.5ZM24 24.35Z" />
+              </svg>
+              <br>Home</a>
             </a>
-            <ul class="dropdown-menu text-small shadow azul-escuro alinha-centro" aria-labelledby="dropdownNavLink">
-              <span class = "titulos-menu">Principais</span>
-              <li><hr class="dropdown-divider vermelho"></li>
-              <li><a class="dropdown-item itens-menu" href="https://emge.edu.br/" aria-current="page">Portal EMGE</a></li>
-              <li><hr class="dropdown-divider vermelho"></li>
-              <li><hr class="dropdown-divider vermelho"></li>
-              <li><a class="dropdown-item itens-menu" href="https://domhelder.edu.br/">Portal Dom</a></li>
-              <li><hr class="dropdown-divider vermelho"></li>
-              <span class = "titulos-menu ">Cursos</span>
-              <li><hr class="dropdown-divider vermelho"></li>       
-              <li><a class="dropdown-item itens-menu" href="#">Ciências da Computação</a></li>
-              <li><hr class="dropdown-divider vermelho"></li>
-              <span class = "titulos-menu">Favoritos</span>
-              <li><hr class="dropdown-divider vermelho"></li>   
-              <li><a class="dropdown-item itens-menu" href="#">Eventos</a></li>
-              <li><hr class="dropdown-divider vermelho"></li> 
-      
-              <div class="esconder">
-      
-                <span class = "titulos-menu ">Navegação</span>
-                <li><hr class="dropdown-divider vermelho"></li>
-                <li><a class="dropdown-item itens-menu" href="#" aria-current="page">Home</a></li>
-                <li><hr class="dropdown-divider vermelho"></li>
-      
-                <!-- mudar link para a pagina certo do adm e não do professor -->
-                <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html" aria-current="page ";>Histórico</a></li>
-                <li><hr class="dropdown-divider vermelho"></li>
-
-                <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\gerenciandoUsuarios.html" aria-current="page ";>Usuários</a></li>
-                <li><hr class="dropdown-divider vermelho"></li>
-
-                <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\envia-notificacao.html" aria-current="page ";>Notificação</a></li>
-                <li><hr class="dropdown-divider vermelho"></li>
-      
-                 <!-- mudar link para a pagina certo do adm e não do professor -->
-                <li><a class="dropdown-item itens-menu" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html" aria-current="page";>Canais</a></li>
-                <li><hr class="dropdown-divider vermelho"></li>
-              </div>
-              
-            </ul>
-          </div>
-      
-          <div class="d-flex align-items-center">
-      
-              <div class="w-100 me-2">
-      
-                   <span class = "texto-titulo-header align-items-center">Cristiano</span> <!-- deixar dinamico -->
-      
-              </div>
-              
-      
-            <div class="flex-shrink-0 dropdown">
-                <img src="/images/presleyson.png" alt="Foto de perfil" width="50" height="50" class="rounded-circle">
-            </div>
-          </div>
-        </div>
-      </header>
-
-    <section class="principal">
-        <h1 class="titulo-principal">Nova Notificação </h1> 
-        <div class="box">
-
-           <form>
-            <fieldset>
-              <h2><label>1. Audiência</label></h2>
-                    
-                  <label for="radio-allUser"><input type="radio" name="Preferencia" value="allUser" id="radio-allUser"> Enviar para todos os usuarios.</label>
-                  
-                  <label for="radio-especifica"><input type="radio" name="Preferencia" value="especifica" id="radio-especifica">Enviar para uma categoria especifica.</label>
-                  
-            </fieldset>
-            
-           </form>
-        </div>
-       
-
-           <div class="box1">
-
-            <form th:object="${notificationDTO}" action="/notification/send" method="post">
-             <fieldset>
-                <h2><label>2. Notificação</label></h2>
-                      
-                <div>
-                  <label for="titulo">Titulo de notificação:</label>
-                  <input class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo " placeholder="Título">
-                </div>
-                <div th:errors="*{title}" class="invalid-feedback">
-                    Erros do titulo
-                </div>
-                <div>
-                    <label for="msg">Mensagem:</label>
-                    <textarea class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30" rows="10" placeholder="Mensagem"></textarea>
-                </div>
-                <div th:errors="*{message}" class="invalid-feedback">
-                    Erros da mensagem
-                </div>
-                <div>
-                    <label>Imagem:</label>
-                    <input class="CampoNotificacao"  th:field="*{category}" placeholder="Adicione uma URL " >
-                </div>
-                   
-             </fieldset>
-             
-            </form>
-           </div>
-
-           <div class="box2">
-
-            <form>
-             <fieldset>
-               <h2><label>3. Agendar Entrega</label></h2>
-                     
-                   <label for="dataTempo"><input type="radio" name="novanotificacao" value="dataTempo" id="dataTempo"> Enviar agora.</label>
-                   
-                   <label for="especifica1"><input type="radio" name="novanotificacao" value="especifica1" id="especifica1">Especificar tempo.</label>
-                   <div >
-                   <input type="date" name="revele" value="revele" id="revele">
-                   <input type="time" name="revele1" value="revele" id="revele1">
-                   </div>  
-                   
-             </fieldset>
-             
-            </form>
-        </div>
-
-        <button class="botao" type="submit">Enviar</button>
-      </section>
-   
-    <footer>
-        <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-dark footer-site">
-          <div class="container-fluid">
-              <ul class="navbar-nav container menu-footer">
-                <li class="nav-item col">
-                  <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\historicoNotificacaoProfessor.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape2" height="48" width="48"><path d="M26 42Q22.15 42 18.65 40.425Q15.15 38.85 12.55 36L14.7 33.85Q16.95 36.25 19.85 37.625Q22.75 39 26 39Q32.25 39 36.625 34.6Q41 30.2 41 23.95Q41 17.7 36.625 13.35Q32.25 9 26 9Q19.6 9 15.3 13.425Q11 17.85 11 24.75L15.35 20.4L17.5 22.55L9.55 30.5L1.55 22.5L3.7 20.35L8 24.65Q8 20.65 9.4 17.225Q10.8 13.8 13.225 11.3Q15.65 8.8 18.95 7.4Q22.25 6 26 6Q29.75 6 33.025 7.425Q36.3 8.85 38.725 11.275Q41.15 13.7 42.575 16.975Q44 20.25 44 24Q44 27.75 42.575 31.025Q41.15 34.3 38.725 36.725Q36.3 39.15 33.025 40.575Q29.75 42 26 42ZM32.05 32.15 24.35 24.55V13.85H27.35V23.3L34.2 30Z"/></svg>
-                    <br>Histórico</a>
-                </li>
-                <li class="nav-item col">
-                    <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\gerenciandoUsuarios.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape" height="48" width="48"><path d="M24 23.95Q20.7 23.95 18.6 21.85Q16.5 19.75 16.5 16.45Q16.5 13.15 18.6 11.05Q20.7 8.95 24 8.95Q27.3 8.95 29.4 11.05Q31.5 13.15 31.5 16.45Q31.5 19.75 29.4 21.85Q27.3 23.95 24 23.95ZM8 40V35.3Q8 33.4 8.95 32.05Q9.9 30.7 11.4 30Q14.75 28.5 17.825 27.75Q20.9 27 24 27Q27.1 27 30.15 27.775Q33.2 28.55 36.55 30Q38.1 30.7 39.05 32.05Q40 33.4 40 35.3V40ZM11 37H37V35.3Q37 34.5 36.525 33.775Q36.05 33.05 35.35 32.7Q32.15 31.15 29.5 30.575Q26.85 30 24 30Q21.15 30 18.45 30.575Q15.75 31.15 12.6 32.7Q11.9 33.05 11.45 33.775Q11 34.5 11 35.3ZM24 20.95Q25.95 20.95 27.225 19.675Q28.5 18.4 28.5 16.45Q28.5 14.5 27.225 13.225Q25.95 11.95 24 11.95Q22.05 11.95 20.775 13.225Q19.5 14.5 19.5 16.45Q19.5 18.4 20.775 19.675Q22.05 20.95 24 20.95ZM24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45Q24 16.45 24 16.45ZM24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Q24 37 24 37Z"/></svg>
-                      <br>Usuário</a>
-                  </li>
-                <li class="nav-item col">
-                  <a class="nav-link active" aria-current="page" href="#"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" height="48" width="48"><path d="M8 42V18L24.1 6L40 18V42H28.3V27.75H19.65V42ZM11 39H16.65V24.75H31.3V39H37V19.5L24.1 9.75L11 19.5ZM24 24.35Z"/></svg>
-                    <br>Home</a>
-                  </a>
-                </li>
-                <li class="nav-item col">
-                    <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\envia-notificacao.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" class = "icone-rodape" height="48" width="48"><path d="M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z"/></svg>
-                      <br>Notificação</a>
-                  </li>
-                <li class="nav-item col">
-                  <a class="nav-link active" aria-current="page" href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html"><svg xmlns="http://www.w3.org/2000/svg" fill = "white" height="48" width="48"><path d="M12 28.05H27.65V25.05H12ZM12 21.55H36V18.55H12ZM12 15.05H36V12.05H12ZM4 44V7Q4 5.85 4.9 4.925Q5.8 4 7 4H41Q42.15 4 43.075 4.925Q44 5.85 44 7V33Q44 34.15 43.075 35.075Q42.15 36 41 36H12ZM7 36.75 10.75 33H41Q41 33 41 33Q41 33 41 33V7Q41 7 41 7Q41 7 41 7H7Q7 7 7 7Q7 7 7 7ZM7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7V33Q7 33 7 33Q7 33 7 33V36.75Z"/></svg>
-                    <br>Canais</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </footer>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page"
+              href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\envia-notificacao.html"><svg
+                xmlns="http://www.w3.org/2000/svg" fill="white" class="icone-rodape" height="48" width="48">
+                <path
+                  d="M8 38V35H12.2V19.7Q12.2 15.6 14.675 12.275Q17.15 8.95 21.2 8.1V6.65Q21.2 5.5 22.025 4.75Q22.85 4 24 4Q25.15 4 25.975 4.75Q26.8 5.5 26.8 6.65V8.1Q30.85 8.95 33.35 12.275Q35.85 15.6 35.85 19.7V35H40V38ZM24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25Q24 23.25 24 23.25ZM24 44Q22.4 44 21.2 42.825Q20 41.65 20 40H28Q28 41.65 26.825 42.825Q25.65 44 24 44ZM15.2 35H32.85V19.7Q32.85 15.95 30.325 13.375Q27.8 10.8 24.05 10.8Q20.35 10.8 17.775 13.375Q15.2 15.95 15.2 19.7Z" />
+              </svg>
+              <br>Notificação</a>
+          </li>
+          <li class="nav-item col">
+            <a class="nav-link active" aria-current="page"
+              href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\canaisComunicacaoProfessor.html"><svg
+                xmlns="http://www.w3.org/2000/svg" fill="white" height="48" width="48">
+                <path
+                  d="M12 28.05H27.65V25.05H12ZM12 21.55H36V18.55H12ZM12 15.05H36V12.05H12ZM4 44V7Q4 5.85 4.9 4.925Q5.8 4 7 4H41Q42.15 4 43.075 4.925Q44 5.85 44 7V33Q44 34.15 43.075 35.075Q42.15 36 41 36H12ZM7 36.75 10.75 33H41Q41 33 41 33Q41 33 41 33V7Q41 7 41 7Q41 7 41 7H7Q7 7 7 7Q7 7 7 7ZM7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7Q7 7 7 7V33Q7 33 7 33Q7 33 7 33V36.75Z" />
+              </svg>
+              <br>Canais</a>
+          </li>
+        </ul>
+      </div>
+      </div>
+    </nav>
+  </footer>
 
 </body>
+
 </html>
 
 <script>
-$(document).ready(function() {
-  $('#revele').hide();
-  // aqui um seletor por name, para pegar todos os radio buttons "devweb"
-  $('input:radio[name="novanotificacao"]').change(function() {
-    // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
-    if ($(this).val() == "especifica1") {
+  $(document).ready(function () {
+    $('#revele').hide();
+    // aqui um seletor por name, para pegar todos os radio buttons "devweb"
+    $('input:radio[name="novanotificacao"]').change(function () {
+      // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
+      if ($(this).val() == "especifica1") {
         $('#revele').show();
-    } else {
-      $('#revele').hide();
-    }
+      } else {
+        $('#revele').hide();
+      }
+    });
   });
-}); 
 
-$(document).ready(function() {
-  $('#revele1').hide();
-  // aqui um seletor por name, para pegar todos os radio buttons "devweb"
-  $('input:radio[name="novanotificacao"]').change(function() {
-    // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
-    if ($(this).val() == "especifica1") {
+  $(document).ready(function () {
+    $('#revele1').hide();
+    // aqui um seletor por name, para pegar todos os radio buttons "devweb"
+    $('input:radio[name="novanotificacao"]').change(function () {
+      // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
+      if ($(this).val() == "especifica1") {
         $('#revele1').show();
-    } else {
-      $('#revele1').hide();
-    }
+      } else {
+        $('#revele1').hide();
+      }
+    });
   });
-}); 
+
+  $(document).ready(function () {
+    $('#mostrar').hide();
+    // aqui um seletor por name, para pegar todos os radio buttons "devweb"
+    $('input:radio[name="Preferencia"]').change(function () {
+      // aqui, this é o radio quem foi clicado, então basta comparar o valor com val()
+      if ($(this).val() == "categoria") {
+        $('#mostrar').show();
+      } else {
+        $('#mostrar').hide();
+      }
+    });
+  }); 
 </script>
 
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
-    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-  
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
 
-    }
+  }
 
-    .esconder{
+  .esconder {
     display: none;
   }
 
-    .box, .box1, .box2{
+  .box,
+  .box1,
+  .box2 {
     /* width: 95%; */
     height: 130px;
     left: 0px;
@@ -244,9 +343,9 @@ $(document).ready(function() {
     box-shadow: 0px 0px 20px #000000;
   }
 
-  .box h2{
-      color: white;
-      padding: 5px;
+  .box h2 {
+    color: white;
+    padding: 5px;
   }
 
   .box1 {
@@ -254,242 +353,258 @@ $(document).ready(function() {
     height: 600px;
   }
 
-  .box2{
+  .box2 {
     margin: 40px 20px;
     height: 200px;
-    margin-bottom:100px ;
-  }   
-  
+    margin-bottom: 100px;
+  }
 
-  .CampoNotificacao{
-      padding: 5px;
+  .box{
+    height: 200px;
+  }
 
-    }
+  .box select{
+    margin: 20px;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+   
+  }
 
-    .CampoNotificacao, textarea{
-      width: 97%;
-      border-radius: 10px;
-      background: #FFFFFF;
-      border: 1px solid #C41632;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
-    }
 
-    .titulo-principal{
+  .CampoNotificacao {
+    padding: 5px;
+
+  }
+
+  .CampoNotificacao,
+  textarea {
+    width: 97%;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #C41632;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+  }
+
+  .titulo-principal {
     font-size: 32px;
     line-height: 36px;
     text-align: center;
     margin-top: 30px;
     /* text-shadow: 2px 2px 2px rgba(204, 174, 27, 0.811); */
     color: white;
-    }
-  
-    .principal p{
-      font-size: 16px;
-        line-height: 18px;
-        margin: 20px;
-        color: white;
-        text-align: center
-    }
-  
-    .texto p{
-        color: white;
-        margin: 20px;
-        position: fixed;
-        bottom: 120px;
-       
-    }
-  
-    form label {
-    display:block;
+  }
+
+  .principal p {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 20px;
+    color: white;
+    text-align: center
+  }
+
+  .texto p {
+    color: white;
+    margin: 20px;
+    position: fixed;
+    bottom: 120px;
+
+  }
+
+  form label {
+    display: block;
     font-size: 20px;
     margin: 5px 10px;
     color: white
-    }
+  }
 
-    .CampoNotificacao{
-      padding: 5px;
+  .CampoNotificacao {
+    padding: 5px;
 
-    }
+  }
 
-    textarea, input{
-      margin: 14px;
-      border-radius: 10px;
-      background: #FFFFFF;
-      border: 1px solid #C41632;
-      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
-      border-radius: 10px;
-    }
-  
-    button{
-      margin-bottom: 150px;
-      margin-right: 30px;
-      text-align: center;
-      cursor: pointer;
-      background-color: #19C416;
-      color: #FFFFFF;
-      height: 40px;
-      width: 150px;
-      border-radius: 10px;
-      float: right;
-    
-    
-    }
+  textarea,
+  input {
+    margin: 14px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    border: 1px solid #C41632;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+  }
 
-  
-    footer a:hover{
-  
+  button {
+    margin-bottom: 150px;
+    margin-right: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-color: #19C416;
+    color: #FFFFFF;
+    height: 40px;
+    width: 150px;
+    border-radius: 10px;
+    float: right;
+
+
+  }
+
+
+  footer a:hover {
+
     text-decoration: underline;
     color: #05092B;
-    }
-  
-    /* ESTILO DP CAIO */
-  
-    .texto-titulo-header{
+  }
+
+  /* ESTILO DP CAIO */
+
+  .texto-titulo-header {
     color: white !important;
     font-size: 30px;
     font-weight: bold;
     float: middle;
     margin-left: 140px;
-    }
-  
-    *{
-        font-family: 'Comfortaa', cursive;
-      
-    }
-  
-    p, div, span{
-      font-weight: 500;
-      font-size: 16px;
-    }
-  
-    h1{
-      font-weight: 500;
-      font-size: 32px;
-    }
-  
-    h2{
-      font-weight: 500;
-      font-size: 26px;
-    }
-  
-    button:hover{
-      background-color: #19C416;
-      color: white;
-      transform: scale(1.2);
-      border-radius: 8px;
-    }
-  
-    body{
-      background-color: #05092B;
-    }
-  
-    .foto-perfil{
-      border-width: 100px !important;
-      border-color: white;
-    }
-  
-    .footer-site{
-     background-color: #C41632 !important; 
-    }
-  
-    .icone-rodape{
-      margin-left: 20px;
-    }
-  
-    a svg:hover{
-      opacity: 70%;
-    }
-  
-    .icone-rodape2{
-      margin-left: 10px;
-    }
-  
-    .vermelho{
-      color: #C41632;
-    }
-  
-    .azul-escuro{
-      background-color: #05092A;
-    }
-    
-    .alinha-centro{
-      text-align: center;
-    }
-  
-    .titulos-menu{
-      color: white;
-      font-size: 20px;
-    }
-  
-    .itens-menu{
-      color: white;
-    }
-  
-    .itens-menu:hover{
-      background-color: #19C416;
-      color: white !important;
-    }
-  
-    @media (min-width: 768px) {
-  
-      .bd-placeholder-img-lg {
+  }
+
+  * {
+    font-family: 'Comfortaa', cursive;
+
+  }
+
+  p,
+  div,
+  span {
+    font-weight: 500;
+    font-size: 16px;
+  }
+
+  h1 {
+    font-weight: 500;
+    font-size: 32px;
+  }
+
+  h2 {
+    font-weight: 500;
+    font-size: 26px;
+  }
+
+  button:hover {
+    background-color: #19C416;
+    color: white;
+    transform: scale(1.2);
+    border-radius: 8px;
+  }
+
+  body {
+    background-color: #05092B;
+  }
+
+  .foto-perfil {
+    border-width: 100px !important;
+    border-color: white;
+  }
+
+  .footer-site {
+    background-color: #C41632 !important;
+  }
+
+  .icone-rodape {
+    margin-left: 20px;
+  }
+
+  a svg:hover {
+    opacity: 70%;
+  }
+
+  .icone-rodape2 {
+    margin-left: 10px;
+  }
+
+  .vermelho {
+    color: #C41632;
+  }
+
+  .azul-escuro {
+    background-color: #05092A;
+  }
+
+  .alinha-centro {
+    text-align: center;
+  }
+
+  .titulos-menu {
+    color: white;
+    font-size: 20px;
+  }
+
+  .itens-menu {
+    color: white;
+  }
+
+  .itens-menu:hover {
+    background-color: #19C416;
+    color: white !important;
+  }
+
+  @media (min-width: 768px) {
+
+    .bd-placeholder-img-lg {
       font-size: 3.5rem;
-      }
-  
-      }
-  
-      @media(max-width:768px) {
-  
-      .menu-footer{
+    }
+
+  }
+
+  @media(max-width:768px) {
+
+    .menu-footer {
       display: none;
-      }
-  
-      .texto-titulo-header{
+    }
+
+    .texto-titulo-header {
       margin-left: 0px !important;
-      }
-  
-      .esconder {
+    }
+
+    .esconder {
       display: block;
-  
-      }
-  
-      .imagemImput button {
+
+    }
+
+    .imagemImput button {
       float: none;
       width: 50px;
-      }
-  
-      .imagemImput{
-      width: 250px;
-      }
-  
+    }
 
-      form input{
+    .imagemImput {
+      width: 250px;
+    }
+
+
+    form input {
       padding: 10px;
-      }
-  
-      .principal p{
+    }
+
+    .principal p {
       text-align: left;
       margin: 16px;
-      }
-  
-      .texto p{
-          bottom: 20px;
+    }
+
+    .texto p {
+      bottom: 20px;
+    }
+
+    .CampoNotificacao,
+    textarea {
+      width: 70%;
+
+    }
+
+    .box{
+        height: 300px;
       }
 
-      .CampoNotificacao, textarea{
-        width: 70%;
-
-      }
-
-      .box{
-        height: 200px;
-      }
-
-      button{
+    button {
       margin-bottom: 50px
     }
-     
-      } 
-  
-  </style>
+
+  }
+</style>
