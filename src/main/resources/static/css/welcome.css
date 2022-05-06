@@ -21,16 +21,6 @@
         width: 1000px;
         max-height: 500px;
     }
-    h6 {
-        padding-left: 228px;
-        padding-right: 228px;
-    }
-    .padd-left {
-        padding-left: 148px;
-    }
-    .margin-left {
-        margin-left: 98px;
-    }
 }
 
 h6 {
@@ -39,31 +29,39 @@ h6 {
 
 .navbar {
     background-color: #C41632;
+    width: 100%;
+    height: auto;
 }
 
 .align-right {
-    margin-left: 450px;
+    margin-left: 350px;
 }
 
 .dropdown:hover .dropdown-menu {
     display: block;
 }
 
-.body-color {
+body {
     background-color: #05092B;
 }
 
 .quem-somos {
+    max-width: 1000px;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .como-funciona {
+    max-width: 1000px;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .instituicao {
+    max-width: 1000px;
+    height: auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
