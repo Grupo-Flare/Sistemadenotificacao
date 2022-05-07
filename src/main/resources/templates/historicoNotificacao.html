@@ -31,6 +31,8 @@
                     </select>
 
                     <input type="submit" value="Não lidas" class="filtro">
+                    <input type="submit" value="Ciência da .." class="filtro">
+                    <input type="submit" value="Engenharia ..." class="filtro">
 
                 </form>
             </div>
@@ -38,18 +40,76 @@
 
         <!-- Renderiza cada notificação vindo do backend -->
         <!-- TODO: Deixar essa div com o estilo igual do figma -->
+    
         <div th:each="notificacao : ${notificacoes}" class="notificacao">
             <!-- Não precisa ser um span, pode ser qualquer elemento, o importante de manter é o th:text -->
-            <span th:text="${notificacao.title}"></span>
-            <span th:text="${notificacao.message}"></span>
-            <span th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
-            <span th:text="${notificacao.category.name}"></span>
+            <span class="tituloNotificacao" th:text="${notificacao.title}"></span>  <span class="tituloData" th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
+            <span class="tituloMensagem" th:text="${notificacao.message}"></span>
+            <span class="tituloCategoria" th:text="${notificacao.category.name}"></span>
+            <div class="linha"></div>
         </div>
+    
 
     </main>
+
+    <a href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\enviarNotificacao.html"><button class="butaoNotificacao">Nova Notificação</button></a>
 
 </body>
 
 <footer th:replace="~{base :: footer}"></footer>
 
 </html>
+
+<style>
+
+    /* .notificacao1{
+        overflow: scroll;
+    } */
+
+    .tituloNotificacao{
+        font-size: 20px;
+         
+    }
+
+    .tituloData{
+      float: right;
+    }
+
+    .tituloMensagem{
+        display: block;
+
+    }
+
+    .linha{
+        margin: 10px 0;
+        border: 0.5px solid #939393;
+        transform: rotate(0.18deg);
+    }
+
+    .butaoNotificacao{
+        box-shadow: 10px 10px 20px #000000;
+        margin: 20px;
+        text-align: center;
+        color: white;
+        width: 180px;
+        height: 30px;
+        background: #1199CC;
+        border-radius: 5px;
+        border: none;
+        /* position: fixed; */
+        /* padding-bottom: 110px; */
+        margin-bottom: 200px;
+    }
+
+    .butaoNotificacao:hover {
+        background-color: #1199CC;
+    }
+
+ 
+    @media(max-width:768px) {
+
+        .box{
+        height: 230px;
+        }
+}
+</style>

@@ -129,6 +129,14 @@
                 </form>
             </div>
         </section>
+
+        <div th:each="notificacao : ${notificacoes}" class="notificacao">
+            <!-- Não precisa ser um span, pode ser qualquer elemento, o importante de manter é o th:text -->
+            <span class="tituloNotificacao" th:text="${notificacao.title}"></span>  <span class="tituloData" th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
+            <span class="tituloMensagem" th:text="${notificacao.message}"></span>
+            <span class="tituloCategoria" th:text="${notificacao.category.name}"></span>
+            <div class="linha"></div>
+        </div>
     </main>
 
     <a href="C:\Users\diego\.vscode\codigos\Alerta\src\main\resources\templates\enviarNotificacao.html"><button class="butaoNotificacao">Nova Notificação</button></a>
@@ -170,6 +178,26 @@
         -webkit-user-select: none;
         -moz-user-select: none;
         user-select: none;
+    }
+
+    .tituloNotificacao{
+        font-size: 20px;
+         
+    }
+
+    .tituloData{
+      float: right;
+    }
+
+    .tituloMensagem{
+        display: block;
+
+    }
+
+    .linha{
+        margin: 10px 0;
+        border: 0.5px solid #939393;
+        transform: rotate(0.18deg);
     }
     
     footer a:hover {
@@ -222,8 +250,8 @@
         background: #1199CC;
         border-radius: 5px;
         border: none;
-        position: fixed;
-        bottom: 120px;
+        /* position: fixed; */
+        margin-bottom: 200px;
     }
     
     .esconder {
@@ -351,6 +379,10 @@
         }
         .butaoNotificacao {
             bottom: 20px;
+        }
+
+        .box{
+        height: 230px;
         }
     }
 </style>
