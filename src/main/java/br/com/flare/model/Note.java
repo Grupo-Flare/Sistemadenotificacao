@@ -21,7 +21,7 @@ public class Note {
     private LocalDateTime date = LocalDateTime.now(); // Hora em que a notificação foi enviada
     // TODO: Criar a logica de agendamento de envio
 
-    @ManyToOne(cascade = CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id")
     private Category category;
 
