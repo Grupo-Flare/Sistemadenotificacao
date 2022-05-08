@@ -3,14 +3,14 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Faça seu login</title>
+    <title>Registre-se</title>
     <link rel="shortcut icon" href="/images/flare-logo.png">
 
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <link rel="stylesheet" type="text/css" href="/css/registrar.css">
 </head>
 
-<body background="images/emge-domhelder.jpeg">
+<body>
     <header class="fixed-top navbar-light text-center">
         <a class="text-white" style="text-decoration: none;">
             <h4 class="comfortaa-bold" style="padding-top: 8px">Flare</h4>
@@ -19,34 +19,39 @@
 
     <div class="container container-center">
         <section>
-            <div class="container text-center" style="margin-top: 20px; margin-bottom: 50px;">
+            <div class="container text-center" style="margin-top: 80px; margin-bottom: 50px;">
                 <img src="/images/flare-logo.png" alt="Flare" width="200px" height="auto">
                 <br>
-
-                <h4 class="text-white comfortaa-light">Preencha com seus dados para fazer login ou cadastrar-se na plataforma.
-                </h4>
             </div>
             <form>
                 <div class="form-group">
+                    <input type="email" class="form-control" id="email" placeholder="E-mail">
+                </div>
+                <div class="form-group">
+                    <br>
+                    <input type="text" class="form-control" id="nomeCompleto" placeholder="Nome Completo">
+                </div>
+                <div class="form-group">
+                    <br>
                     <input type="text" class="form-control" id="user" placeholder="Usuário">
                 </div>
                 <div class="form-group">
                     <br>
                     <input type="password" class="form-control" id="password" placeholder="Senha">
                 </div>
+                <div class="form-group">
+                    <br>
+                    <input type="password" class="form-control" id="confirmPassword" placeholder="Confirme a Senha">
+                </div>
                 <div class="form-check">
                     <br>
-                    <input type="checkbox" class="form-check-input" id="rememberMe">
-                    <label class="form-check-label" for="rememberMe">Lembre-se de mim</label>
+                    <input type="checkbox" class="form-check-input" id="checkRule" checked>
+                    <label class="form-check-label" for="checkRule">Li e concordo com os Termos de uso e política de privacidade.</label>
                 </div>
 
                 <div class="container text-center">
                     <br>
-                    <button type="submit" class="btn btn-flare">Login</button>
-                    <br>
-
-                    <br>
-                    <button type="submit" class="btn btn-flare">Cadastre-se</button>
+                    <button type="submit" class="btn btn-flare">Confirmar Cadastro</button>
                     <br>
                     <br>
                 </div>
