@@ -18,6 +18,8 @@ public class NotificationDTO {
 
     private String category;
 
+    private String urlImage;
+
     public NotificationDTO(String title, String message) {
         this.title = title;
         this.message = message;
@@ -46,6 +48,14 @@ public class NotificationDTO {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getUrlImage() {
+        return urlImage;
+    }
+
+    public void setUrlImage(String urlImage) {
+        this.urlImage = urlImage;
     }
 
     public Note toModel() {

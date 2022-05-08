@@ -42,7 +42,11 @@ public class NotificationController {
     }
 
     @GetMapping
-    public String form(NotificationDTO notificationDTO) {
+    public String form(NotificationDTO notificationDTO, Model model) {
+
+        List<Category> categories = categoryRepository.findAll();
+        model.addAttribute("categorias", categories);
+
         return "envia-notificacao";
     }
 
