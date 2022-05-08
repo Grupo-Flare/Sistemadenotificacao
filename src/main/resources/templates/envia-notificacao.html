@@ -168,22 +168,22 @@
 
           <div>
             <label for="titulo">Titulo de notificação:</label>
-            <input required class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo"
-              placeholder="Título">
+            <input required class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text"
+              id="titulo" placeholder="Título">
             <span class="invalido" th:errors="*{title}"></span>
           </div>
           <div>
             <label for="msg">Mensagem:</label>
-            <textarea required class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30"
-              rows="10" placeholder="Mensagem"></textarea>
+            <textarea required class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg"
+              cols="30" rows="10" placeholder="Mensagem"></textarea>
             <span class="invalido" th:errors="*{message}"></span>
           </div>
           <label>Imagem:</label>
           <input class="CampoNotificacao" th:field="*{urlImage}" placeholder="Adicione uma URL ">
+
+        </fieldset>
+
       </div>
-
-      </fieldset>
-
 
       </div>
 
@@ -199,8 +199,8 @@
           <label for="especifica1"><input type="radio" name="novanotificacao" value="especifica1"
               id="especifica1">Especificar tempo.</label>
           <div>
-            <input type="date" name="revele" value="revele" id="revele">
-            <input type="time" name="revele1" value="revele" id="revele1">
+            <input type="date" name="revele" value="revele" id="revele" th:field="*{date}">
+            <input type="time" name="revele1" value="revele" id="revele1" th:field="*{time}">
           </div>
 
         </fieldset>

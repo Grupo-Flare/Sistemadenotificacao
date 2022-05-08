@@ -1,28 +1,28 @@
 package br.com.flare.controller;
 
-import java.util.List;
-
+import br.com.flare.dto.NotificationDTO;
 import br.com.flare.exceptionHandler.MvcErrorException;
 import br.com.flare.model.Category;
+import br.com.flare.model.Note;
+import br.com.flare.model.Subscription;
 import br.com.flare.repository.CategoryRepository;
 import br.com.flare.repository.NotificationRepository;
+import br.com.flare.repository.SubscriptionRepository;
+import br.com.flare.service.NotificationSenderService;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
-
-import br.com.flare.dto.NotificationDTO;
-import br.com.flare.model.Note;
-import br.com.flare.model.Subscription;
-import br.com.flare.repository.SubscriptionRepository;
-import br.com.flare.service.NotificationSenderService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.PersistenceException;
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
+import java.util.List;
 
 @Controller
 @RequestMapping("/notification")
@@ -54,9 +54,15 @@ public class NotificationController {
     public String send(@Valid NotificationDTO notificationDTO, BindingResult result) {
 
         if (result.hasErrors()) {
+            System.out.println(result.getAllErrors());
             return "envia-notificacao";
         }
 
+        /*
+            TODO:
+             Validar se foi enviado a categoria, se não, enviar para todos
+             Implementar a logica de envio por categoria
+        */
         Note note = notificationDTO.toModel();
         try {
             List<Subscription> subscriptions = subscriptionRepository.findAll();

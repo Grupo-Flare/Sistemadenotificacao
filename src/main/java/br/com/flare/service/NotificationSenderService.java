@@ -1,23 +1,13 @@
 package br.com.flare.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.google.firebase.messaging.BatchResponse;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.google.firebase.messaging.FirebaseMessagingException;
-import com.google.firebase.messaging.Message;
-import com.google.firebase.messaging.MulticastMessage;
-import com.google.firebase.messaging.Notification;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-
-import br.com.flare.exceptionHandler.ApiErrorException;
-import br.com.flare.exceptionHandler.MvcErrorException;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
+import com.google.firebase.messaging.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class NotificationSenderService {

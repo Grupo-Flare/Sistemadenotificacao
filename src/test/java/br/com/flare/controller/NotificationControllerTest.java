@@ -17,7 +17,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.PersistenceException;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
@@ -110,7 +111,8 @@ public class NotificationControllerTest {
     public void deveRetornarNotificacoesParaUmaCategoria() throws Exception {
 
         when(notificationRepository.findByCategory(any(String.class)))
-                .thenReturn(List.of(new Note("Titulo", "Mensagem", "Imagem", new Category(""))));
+                .thenReturn(List.of(new Note("Titulo", "Mensagem", "Imagem",
+                        new Category(""), LocalDate.now(), LocalTime.now())));
 
         this.mockMvc.perform(get("/notification/historic")
                         .param("category", "Computação"))
