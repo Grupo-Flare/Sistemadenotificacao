@@ -136,7 +136,7 @@
   <section class="principal">
     <h1 class="titulo-principal">Nova Notificação </h1>
 
-    <form th:object="${notificationDTO}" action="/notification/send" method="post">
+    <form id="formNotificacao" th:object="${notificationDTO}" action="/notification/send" method="post">
       <div class="box">
 
         <fieldset>
@@ -149,7 +149,7 @@
             categoria especifica.</label>
           <div>
             <select name="category" value="mostrar" id="mostrar">
-              <option disabled selected>Selecione</option>
+              <option disabled selected value="">Selecione</option>
               <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
                 th:text="${categoria.name}"></option>
             </select>
@@ -168,13 +168,13 @@
 
           <div>
             <label for="titulo">Titulo de notificação:</label>
-            <input class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo "
+            <input required class="CampoNotificacao" th:field="*{title}" th:errorclass="is-invalid" type="text" id="titulo"
               placeholder="Título">
             <span class="invalido" th:errors="*{title}"></span>
           </div>
           <div>
             <label for="msg">Mensagem:</label>
-            <textarea class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30"
+            <textarea required class="CampoNotificacao" th:field="*{message}" th:errorclass="is-invalid" id="msg" cols="30"
               rows="10" placeholder="Mensagem"></textarea>
             <span class="invalido" th:errors="*{message}"></span>
           </div>
@@ -205,7 +205,7 @@
 
         </fieldset>
       </div>
-      <button class="botao" type="submit">Enviar</button>
+      <button class="botao" type="button" onclick="validaFormulario()">Enviar</button>
     </form>
 
 
