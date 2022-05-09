@@ -82,9 +82,9 @@ public class NotificationDTO {
     public Note toModel() {
 
         if (getDate().isBlank() || getDate().isEmpty()) {
-            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory()), LocalDate.now(), LocalTime.now());
+            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), LocalDate.now(), LocalTime.now());
         } else {
-            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory()), LocalDate.parse(getDate()), LocalTime.parse(getTime()));
+            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), LocalDate.parse(getDate()), LocalTime.parse(getTime()));
         }
 
     }

@@ -44,7 +44,7 @@ public class NotificationController {
     @GetMapping
     public String form(NotificationDTO notificationDTO, Model model) {
 
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAllByOrderByIdAsc();
         model.addAttribute("categorias", categories);
 
         return "envia-notificacao";
@@ -94,7 +94,7 @@ public class NotificationController {
             model.addAttribute("notificacoes", notifications);
 
         // TODO: Filtar somente pelas categorias em que o usuario esta cadastrado
-        List<Category> categories = categoryRepository.findAll();
+        List<Category> categories = categoryRepository.findAllByOrderByIdAsc();
         model.addAttribute("categorias", categories);
 
         return "historicoNotificacao";
