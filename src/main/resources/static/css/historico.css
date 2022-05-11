@@ -1,0 +1,176 @@
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.refresh {
+  float: right;
+  position: relative;
+  padding: 10px 10px;
+  margin: 10px 15px;
+}
+
+.box {
+  width: 100%;
+  height: 130px;
+  left: 0px;
+  top: 74px;
+  background: rgba(5, 9, 43, 0.1);
+  box-shadow: 0px 0px 10px #000000e1;
+}
+
+.box h1 {
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+.box select,
+.filtro {
+  box-shadow: 5px 5px 10px #000000;
+  margin: 20px;
+  text-align: center;
+  color: white;
+  width: 150px;
+  height: 30px;
+  background: #6D0606;
+  border-radius: 10px;
+  border: none;
+}
+
+.filtros {
+  display: flex;
+}
+
+button:hover.filtro {
+  background-color: #6d0606ca;
+  color: white;
+  transform: none;
+}
+
+button {
+  margin: 50px;
+}
+
+form label {
+  margin: 30px;
+}
+
+.principal p {
+  text-align: left;
+  margin: 16px;
+}
+
+button:hover {
+  background-color: #19C416;
+  color: white;
+  transform: scale(1.2);
+}
+
+body {
+  background-color: #05092B;
+}
+
+.notificacao {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.linha1 {
+  font-size: 22px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.linha2 {
+  font-size: 20px;
+}
+
+.tituloNotificacao {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.categoriaNotificacao {
+  margin-right: 10px;
+  margin-left: 10px;
+  color: #C4C4C4;
+
+}
+
+.dataNotificacao {
+  float: right;
+}
+
+.mensagemNotificacao {
+  display: block;
+  margin-right: 10px;
+  margin-left: 10px;
+
+}
+
+.semNotificacoes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 10px;
+}
+
+.linha {
+  margin: 10px 0;
+  color: #939393;
+  height: 5px;
+}
+
+.butaoNotificacao {
+  box-shadow: 10px 10px 20px #000000;
+  margin: 20px;
+  text-align: center;
+  color: white;
+  width: 180px;
+  height: 30px;
+  background: #1199CC;
+  border-radius: 5px;
+  border: none;
+  /* position: fixed; */
+  /* padding-bottom: 110px; */
+  margin-bottom: 200px;
+}
+
+.butaoNotificacao:hover {
+  background-color: #1199CC;
+}
+
+
+
+@media (max-width: 768px) {
+
+  .box {
+    height: 170px;
+  }
+
+  .box select,
+  .filtro {
+    margin: 10px;
+  }
+
+  .filtros {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .linha1 {
+    font-size: 20px;
+  }
+
+  .linha2 {
+    font-size: 18px;
+  }
+
+}

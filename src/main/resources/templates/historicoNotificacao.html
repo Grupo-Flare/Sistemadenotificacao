@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:include="~{base :: head(~{::title},~{::link})}">
+
+  <link rel="stylesheet" href="/css/historico.css">
+  <title>Flare | Histórico de Notificação</title>
+
+</head>
+
+<div class="b-example-divider"></div>
+
+<header th:replace="~{base :: header}"></header>
+
+<body class>
+
+  <main>
+    <section class="principal">
+      <div class="box">
+
+        <a href=""><img class="refresh" src="/images/refresh.png"></a>
+        <h1 class="titulo-principal">Notificações </h1>
+
+        <div class="filtros">
+          <form action="/notification/historic" method="get">
+
+            <select name="category" onchange="this.form.submit()">
+              <option disabled selected>Categorias</option>
+              <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value="" th:text="${categoria.name}"></option>
+            </select>
+
+          </form>
+          <a href="/notification/historic"><button class="filtro">Todos</button></a>
+          <!-- TODO: Implementar a logica de não lido  -->
+          <a href="/notification/historic"><button class="filtro">Não Lidos</button></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Renderiza cada notificação vindo do backend -->
+    <div th:each="notificacao : ${notificacoes}" class="notificacao">
+      <div class="linha1">
+        <span class="tituloNotificacao" th:text="${notificacao.title}"></span>
+        <span style="color: #C4C4C4; font-size: 20px;">/</span>
+        <span class="categoriaNotificacao" th:text="${notificacao.category.name}"></span>
+        <span class="dataNotificacao" th:text="${#temporals.format(notificacao.date, 'dd/MM')}"></span>
+      </div>
+      <div class="linha2">
+        <span class="mensagemNotificacao" th:text="${notificacao.message}"></span>
+      </div>
+      <hr class="linha" />
+    </div>
+
+    <h1 class="semNotificacoes" th:text="${semNotificacoes}"></h1>
+
+
+  </main>
+
+  <a href="/notification"><button class="butaoNotificacao">Nova Notificação</button></a>
+
+</body>
+
+<footer th:replace="~{base :: footer}"></footer>
+
+</html>

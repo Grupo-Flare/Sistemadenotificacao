@@ -1,0 +1,54 @@
+@font-face {
+    font-family: Comfortaa-Bold;
+    src: local(Comfortaa-Bold), url(../fonts/Comfortaa-Bold.ttf);
+}
+
+.comfortaa-bold {
+    font-family: Comfortaa-Bold;
+}
+
+@font-face {
+    font-family: Comfortaa-Light;
+    src: local(Comfortaa-Light), url(../fonts/Comfortaa-Light.ttf);
+}
+
+.comfortaa-light {
+    font-family: Comfortaa-Light;
+}
+
+.btn-flare {
+    background-color: #C41632;
+    color: white;
+    width: 300px;
+    height: auto;
+}
+
+input {
+    box-shadow: 0 0 5px #C41632;
+}
+
+.container-center {
+    max-width: 500px;
+    margin-top: 50px;
+}
+
+header {
+    background-color: #C41632;
+    width: 100%;
+    height: 40px;
+}
+
+body {
+    max-height: 900px;
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
+}
+
+footer {
+    position: flex;
+    background-color: #C41632;
+    width: 100%;
+    height: 40px;
+    padding-top: 14px;
+    bottom: 0;
+}
