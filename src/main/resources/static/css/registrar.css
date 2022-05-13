@@ -27,6 +27,11 @@ input {
     box-shadow: 0 0 5px #C41632;
 }
 
+.form-check-input {
+    background: #C4C4C4;
+    border-radius: 10px;
+}
+
 .container-center {
     max-width: 500px;
     margin-top: 50px;
@@ -40,6 +45,7 @@ header {
 
 body {
     max-height: 900px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #05092B;
     --bs-text-opacity: 1;
     color: rgba(var(--bs-white-rgb), var(--bs-text-opacity)) !important;
 }
