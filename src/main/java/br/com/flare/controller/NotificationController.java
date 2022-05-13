@@ -8,8 +8,10 @@ import br.com.flare.model.Subscription;
 import br.com.flare.repository.CategoryRepository;
 import br.com.flare.repository.NotificationRepository;
 import br.com.flare.repository.SubscriptionRepository;
+import br.com.flare.scheduler.JobSchedule;
 import br.com.flare.service.NotificationSenderService;
 import com.google.firebase.messaging.FirebaseMessagingException;
+import org.quartz.SchedulerException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.PersistenceException;
 import javax.validation.Valid;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -32,13 +35,15 @@ public class NotificationController {
     private final SubscriptionRepository subscriptionRepository;
     private final NotificationRepository notificationRepository;
     private final CategoryRepository categoryRepository;
+    private final JobSchedule jobSchedule;
 
     @Autowired
-    public NotificationController(NotificationSenderService notificationSenderService, SubscriptionRepository subscriptionRepository, NotificationRepository notificationRepository, CategoryRepository categoryRepository) {
+    public NotificationController(NotificationSenderService notificationSenderService, SubscriptionRepository subscriptionRepository, NotificationRepository notificationRepository, CategoryRepository categoryRepository, JobSchedule jobSchedule) {
         this.notificationSenderService = notificationSenderService;
         this.subscriptionRepository = subscriptionRepository;
         this.notificationRepository = notificationRepository;
         this.categoryRepository = categoryRepository;
+        this.jobSchedule = jobSchedule;
     }
 
     @GetMapping
@@ -64,14 +69,20 @@ public class NotificationController {
              Implementar a logica de envio por categoria
         */
         Note note = notificationDTO.toModel();
+        List<Subscription> subscriptions = subscriptionRepository.findAll();
         try {
-            List<Subscription> subscriptions = subscriptionRepository.findAll();
-            notificationSenderService.sendNotificationToAllUsers(note, subscriptions);
+            if (notificationDTO.getDate().isEmpty() || notificationDTO.getTime().isEmpty()) {
+                notificationSenderService.sendNotificationToAllUsers(note, subscriptions);
+            } else {
+                jobSchedule.scheduleNewJob(note, note.getDate());
+            }
             notificationRepository.save(note);
         } catch (FirebaseMessagingException e) {
             throw new MvcErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
         } catch (PersistenceException e) {
             throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() + "\n" + e.getCause());
+        } catch (SchedulerException e) {
+            throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro agendamento " + e.toString());
         }
 
         return "redirect:/notification";

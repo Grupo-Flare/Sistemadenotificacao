@@ -18,6 +18,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.PersistenceException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -112,7 +113,7 @@ public class NotificationControllerTest {
 
         when(notificationRepository.findByCategory(any(String.class)))
                 .thenReturn(List.of(new Note("Titulo", "Mensagem", "Imagem",
-                        new Category(""), LocalDate.now(), LocalTime.now())));
+                        new Category(""), LocalDateTime.now())));
 
         this.mockMvc.perform(get("/notification/historic")
                         .param("category", "Computação"))

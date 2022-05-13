@@ -6,7 +6,9 @@ import br.com.flare.model.Note;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class NotificationDTO {
 
@@ -29,6 +31,21 @@ public class NotificationDTO {
         this.title = title;
         this.message = message;
 
+    }
+
+    public Note toModel() {
+
+        if (getDate().isBlank() || getDate().isEmpty()) {
+            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), LocalDateTime.now());
+        } else {
+            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), getLocalDateTime());
+        }
+
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        return LocalDateTime.parse(getDate() + " " + getTime(), formatter);
     }
 
     public java.lang.String getTitle() {
@@ -77,16 +94,6 @@ public class NotificationDTO {
 
     public void setTime(String time) {
         this.time = time;
-    }
-
-    public Note toModel() {
-
-        if (getDate().isBlank() || getDate().isEmpty()) {
-            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), LocalDate.now(), LocalTime.now());
-        } else {
-            return new Note(getTitle(), getMessage(), getUrlImage(), new Category(getCategory().isBlank() ? "Geral" : getCategory()), LocalDate.parse(getDate()), LocalTime.parse(getTime()));
-        }
-
     }
 
 }

@@ -3,6 +3,7 @@ package br.com.flare.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 @Entity
@@ -19,8 +20,7 @@ public class Note {
 
     private String imageUrl; // Icone que aparece na notificação
 
-    private LocalDate date;  // Hora em que a notificação foi enviada
-    private LocalTime time;
+    private LocalDateTime date;  // Hora em que a notificação foi enviada
     // TODO: Criar a logica de agendamento de envio
 
     @ManyToOne(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
@@ -31,13 +31,12 @@ public class Note {
     public Note() {
     }
 
-    public Note(String title, String message, String imageUrl, Category category, LocalDate date, LocalTime time) {
+    public Note(String title, String message, String imageUrl, Category category, LocalDateTime date) {
         this.title = title;
         this.message = message;
         this.imageUrl = imageUrl;
         this.category = category;
         this.date = date;
-        this.time = time;
     }
 
     public String getTitle() {
@@ -72,12 +71,12 @@ public class Note {
         this.id = id;
     }
 
-    public LocalDate getDate() {
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
-        this.date= date;
+    public void setDate(LocalDateTime date) {
+        this.date = date;
     }
 
     public Category getCategory() {
@@ -88,11 +87,4 @@ public class Note {
         this.category = category;
     }
 
-    public LocalTime getTime() {
-        return time;
-    }
-
-    public void setTime(LocalTime time) {
-        this.time = time;
-    }
 }
