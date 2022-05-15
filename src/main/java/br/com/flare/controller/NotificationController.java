@@ -67,6 +67,7 @@ public class NotificationController {
             } else {
                 notificationSenderService.scheduleNotificationSending(note);
             }
+            notificationRepository.save(note);
         } catch (FirebaseMessagingException e) {
             throw new MvcErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
         } catch (PersistenceException e) {

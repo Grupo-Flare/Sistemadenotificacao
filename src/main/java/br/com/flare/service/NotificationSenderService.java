@@ -3,7 +3,6 @@ package br.com.flare.service;
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
 import br.com.flare.repository.CategoryRepository;
-import br.com.flare.repository.NotificationRepository;
 import br.com.flare.repository.SubscriptionRepository;
 import br.com.flare.scheduler.JobSchedule;
 import com.google.firebase.messaging.*;
@@ -20,15 +19,13 @@ import java.util.List;
 public class NotificationSenderService {
 
     private final FirebaseMessaging firebaseMessaging;
-    private final NotificationRepository notificationRepository;
     private final SubscriptionRepository subscriptionRepository;
     private final CategoryRepository categoryRepository;
     private final JobSchedule jobSchedule;
 
     @Autowired
-    public NotificationSenderService(FirebaseMessaging firebaseMessaging, NotificationRepository notificationRepository, SubscriptionRepository subscriptionRepository, CategoryRepository categoryRepository, JobSchedule jobSchedule) {
+    public NotificationSenderService(FirebaseMessaging firebaseMessaging, SubscriptionRepository subscriptionRepository, CategoryRepository categoryRepository, JobSchedule jobSchedule) {
         this.firebaseMessaging = firebaseMessaging;
-        this.notificationRepository = notificationRepository;
         this.subscriptionRepository = subscriptionRepository;
         this.categoryRepository = categoryRepository;
         this.jobSchedule = jobSchedule;
@@ -50,7 +47,6 @@ public class NotificationSenderService {
                 .build();
 
         firebaseMessaging.send(message);
-        notificationRepository.save(note);
     }
 
     public void sendNotificationToAllUsers(Note note) throws FirebaseMessagingException {
@@ -74,7 +70,6 @@ public class NotificationSenderService {
                 .build();
 
         BatchResponse response = firebaseMessaging.sendMulticast(message);
-        notificationRepository.save(note);
 
     }
 
@@ -85,12 +80,10 @@ public class NotificationSenderService {
     }
     public void scheduleNotificationSending(Note note, LocalDateTime localDateTime) throws SchedulerException {
         jobSchedule.scheduleNewJob(note, localDateTime);
-        notificationRepository.save(note);
     }
 
     public void scheduleNotificationSending(Note note) throws SchedulerException {
         jobSchedule.scheduleNewJob(note, note.getDate());
-        notificationRepository.save(note);
     }
 
 }

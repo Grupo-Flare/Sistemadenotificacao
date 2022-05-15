@@ -59,7 +59,7 @@ public class NotificationControllerTest {
     @Test
     public void deveRetornarMensagemDeErroParaCampoInvalido() throws Exception {
 
-        mockMvc.perform(post("/notification/send")
+        mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "")
                         .param("message", ""))
@@ -79,10 +79,13 @@ public class NotificationControllerTest {
                 .when(notificationSenderService)
                 .sendNotificationToAllUsers(any(Note.class));
 
-        this.mockMvc.perform(post("/notification/send")
+        this.mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "Teste")
-                        .param("message", "teste"))
+                        .param("message", "teste")
+                        .param("category", "")
+                        .param("date", "")
+                        .param("time", ""))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("400 BAD_REQUEST")));
@@ -94,13 +97,16 @@ public class NotificationControllerTest {
         notificationDTO = new NotificationDTO("Titulo", "Mensagem");
 
         doThrow(new PersistenceException("Erro ao buscar no banco"))
-                .when(subscriptionRepository)
-                .findAll();
+                .when(notificationRepository)
+                .save(any(Note.class));
 
-        this.mockMvc.perform(post("/notification/send")
+        this.mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "Teste")
-                        .param("message", "teste"))
+                        .param("message", "teste")
+                        .param("category", "")
+                        .param("date", "")
+                        .param("time", ""))
                 .andDo(print())
                 .andExpect(status().isInternalServerError())
                 .andExpect(content().string(containsString("500 INTERNAL_SERVER_ERROR")))
