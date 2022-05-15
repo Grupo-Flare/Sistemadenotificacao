@@ -4,11 +4,8 @@ import br.com.flare.dto.NotificationDTO;
 import br.com.flare.exceptionHandler.MvcErrorException;
 import br.com.flare.model.Category;
 import br.com.flare.model.Note;
-import br.com.flare.model.Subscription;
 import br.com.flare.repository.CategoryRepository;
 import br.com.flare.repository.NotificationRepository;
-import br.com.flare.repository.SubscriptionRepository;
-import br.com.flare.scheduler.JobSchedule;
 import br.com.flare.service.NotificationSenderService;
 import com.google.firebase.messaging.FirebaseMessagingException;
 import org.quartz.SchedulerException;
@@ -24,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.persistence.PersistenceException;
 import javax.validation.Valid;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Controller
@@ -32,18 +28,14 @@ import java.util.List;
 public class NotificationController {
 
     private final NotificationSenderService notificationSenderService;
-    private final SubscriptionRepository subscriptionRepository;
     private final NotificationRepository notificationRepository;
     private final CategoryRepository categoryRepository;
-    private final JobSchedule jobSchedule;
 
     @Autowired
-    public NotificationController(NotificationSenderService notificationSenderService, SubscriptionRepository subscriptionRepository, NotificationRepository notificationRepository, CategoryRepository categoryRepository, JobSchedule jobSchedule) {
+    public NotificationController(NotificationSenderService notificationSenderService, NotificationRepository notificationRepository, CategoryRepository categoryRepository) {
         this.notificationSenderService = notificationSenderService;
-        this.subscriptionRepository = subscriptionRepository;
         this.notificationRepository = notificationRepository;
         this.categoryRepository = categoryRepository;
-        this.jobSchedule = jobSchedule;
     }
 
     @GetMapping
@@ -69,20 +61,18 @@ public class NotificationController {
              Implementar a logica de envio por categoria
         */
         Note note = notificationDTO.toModel();
-        List<Subscription> subscriptions = subscriptionRepository.findAll();
         try {
             if (notificationDTO.getDate().isEmpty() || notificationDTO.getTime().isEmpty()) {
-                notificationSenderService.sendNotificationToAllUsers(note, subscriptions);
+                notificationSenderService.sendNotificationToAllUsers(note);
             } else {
-                jobSchedule.scheduleNewJob(note, note.getDate());
+                notificationSenderService.scheduleNotificationSending(note);
             }
-            notificationRepository.save(note);
         } catch (FirebaseMessagingException e) {
             throw new MvcErrorException(HttpStatus.BAD_REQUEST, e.getMessage() + ": " + e.getMessagingErrorCode());
         } catch (PersistenceException e) {
             throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage() + "\n" + e.getCause());
         } catch (SchedulerException e) {
-            throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro agendamento " + e.toString());
+            throw new MvcErrorException(HttpStatus.INTERNAL_SERVER_ERROR, "Erro no agendamento " + e);
         }
 
         return "redirect:/notification";

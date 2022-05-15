@@ -3,7 +3,6 @@ package br.com.flare.scheduler;
 import br.com.flare.model.Note;
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.quartz.QuartzJobBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +21,7 @@ public class JobSchedule {
 
         JobDetail jobDetail = JobBuilder
                 .newJob(NotificationJob.class)
-                .withIdentity("Job", "Scheduled")
+                .withIdentity(note.getTitle(), note.getTitle() + "Scheduled")
                 .build();
 
         jobDetail.getJobDataMap().put("note", note);

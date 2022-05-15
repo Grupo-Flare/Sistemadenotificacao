@@ -77,7 +77,7 @@ public class NotificationControllerTest {
 
         doThrow(FirebaseMessagingException.class)
                 .when(notificationSenderService)
-                .sendNotificationToAllUsers(any(Note.class), anyList());
+                .sendNotificationToAllUsers(any(Note.class));
 
         this.mockMvc.perform(post("/notification/send")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
