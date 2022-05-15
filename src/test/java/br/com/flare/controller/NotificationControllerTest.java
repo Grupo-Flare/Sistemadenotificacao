@@ -17,7 +17,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.persistence.PersistenceException;
-
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.hamcrest.Matchers.containsString;
@@ -57,7 +59,7 @@ public class NotificationControllerTest {
     @Test
     public void deveRetornarMensagemDeErroParaCampoInvalido() throws Exception {
 
-        mockMvc.perform(post("/notification/send")
+        mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "")
                         .param("message", ""))
@@ -75,12 +77,15 @@ public class NotificationControllerTest {
 
         doThrow(FirebaseMessagingException.class)
                 .when(notificationSenderService)
-                .sendNotificationToAllUsers(any(Note.class), anyList());
+                .sendNotificationToAllUsers(any(Note.class));
 
-        this.mockMvc.perform(post("/notification/send")
+        this.mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "Teste")
-                        .param("message", "teste"))
+                        .param("message", "teste")
+                        .param("category", "")
+                        .param("date", "")
+                        .param("time", ""))
                 .andDo(print())
                 .andExpect(status().isBadRequest())
                 .andExpect(content().string(containsString("400 BAD_REQUEST")));
@@ -92,13 +97,16 @@ public class NotificationControllerTest {
         notificationDTO = new NotificationDTO("Titulo", "Mensagem");
 
         doThrow(new PersistenceException("Erro ao buscar no banco"))
-                .when(subscriptionRepository)
-                .findAll();
+                .when(notificationRepository)
+                .save(any(Note.class));
 
-        this.mockMvc.perform(post("/notification/send")
+        this.mockMvc.perform(post("/notification")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .param("title", "Teste")
-                        .param("message", "teste"))
+                        .param("message", "teste")
+                        .param("category", "")
+                        .param("date", "")
+                        .param("time", ""))
                 .andDo(print())
                 .andExpect(status().isInternalServerError())
                 .andExpect(content().string(containsString("500 INTERNAL_SERVER_ERROR")))
@@ -110,7 +118,8 @@ public class NotificationControllerTest {
     public void deveRetornarNotificacoesParaUmaCategoria() throws Exception {
 
         when(notificationRepository.findByCategory(any(String.class)))
-                .thenReturn(List.of(new Note("Titulo", "Mensagem", "Imagem", new Category(""))));
+                .thenReturn(List.of(new Note("Titulo", "Mensagem", "Imagem",
+                        new Category(""), LocalDateTime.now())));
 
         this.mockMvc.perform(get("/notification/historic")
                         .param("category", "Computação"))

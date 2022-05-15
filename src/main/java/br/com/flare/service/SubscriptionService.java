@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.PersistenceException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Service
 public class SubscriptionService {
@@ -32,7 +35,11 @@ public class SubscriptionService {
             subscriptionRepository.save(pushSubscription);
             // Envia uma notificação de confirmação
             notificationSenderService.sendNotificationToOneUser(
-                    new Note("Confirmando", "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app", "", null),
+                    new Note("Confirmando",
+                            "Ola, estamos te enviando essa notificação para confirmar que esta cadastrado em nosso app",
+                            "",
+                            null,
+                            LocalDateTime.now()),
                     pushSubscription);
         } catch (PersistenceException e) {
             e.printStackTrace();

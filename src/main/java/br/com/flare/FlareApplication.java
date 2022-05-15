@@ -22,7 +22,7 @@ public class FlareApplication {
                 .builder()
                 .setCredentials(googleCredentials)
                 .build();
-        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "Flare");
+        FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "Flare"+Math.random());
         return FirebaseMessaging.getInstance(app);
     }
 
