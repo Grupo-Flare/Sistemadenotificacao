@@ -55,7 +55,7 @@ public class NotificationController {
         return "envia-notificacao";
     }
 
-    @PostMapping("/send")
+    @PostMapping
     public String send(@Valid NotificationDTO notificationDTO, BindingResult result) {
 
         if (result.hasErrors()) {
