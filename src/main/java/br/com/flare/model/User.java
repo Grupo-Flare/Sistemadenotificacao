@@ -18,7 +18,7 @@ public class User {
     @Column(unique = true)
     private String email;
 
-    @OneToMany
+    @ManyToMany
     private List<Category> category;
 
     public User() {
