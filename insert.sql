@@ -1,5 +1,5 @@
 INSERT INTO users
-(email, "name") VALUES
+("name", email) VALUES
 ('Sônia Daiane Jennifer Ferreira', 'sonia-ferreira91@corp.inf.br'),
 ('Geraldo Benício Benício Pereira', 'geraldobeniciopereira@huios.com.br'),
 ('Aparecida Cecília Luiza Castro', 'aparecida.cecilia.castro@bravo.com.br'),
