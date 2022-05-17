@@ -4,6 +4,7 @@ import { getMessaging, onMessage, getToken } from 'https://www.gstatic.com/fireb
 // Elementos do HTML
 const tokenDiv = document.getElementById("token");
 const botao = document.getElementById("inscrever");
+const user = document.getElementById("usuario");
 
 //Configurações do Firebase
 const firebaseConfig = {
@@ -56,9 +57,11 @@ function sendSubscriptionToServer(token) {
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
+   // TODO: Pegar automaticamente o usuario que está logado
   //Corpo da requisição
   var body = JSON.stringify({
-    "token": token
+    "token": token,
+    "user": user.value
   });
 
   var requestOptions = {
