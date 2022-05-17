@@ -1,0 +1,32 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:alpine'
+    volumes:
+      - postgres-volume:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: flare
+      POSTGRES_HOST: postgres
+    networks:
+      - postgres-network
+
+  pdAdmin:
+    image: 'dpage/pgadmin4'
+    ports:
+      - 15432:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: 'hugo@email.com'
+      PGADMIN_DEFAULT_PASSWORD: postgres
+    networks:
+      - postgres-network
+
+volumes:
+  postgres-volume:
+
+networks:
+  postgres-network:
+    driver: bridge
