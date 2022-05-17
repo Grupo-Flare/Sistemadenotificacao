@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 
-    List<Category> findAllByOrderByIdAsc();
+    List<Category> findAllByOrderByNameAsc();
 
     @Query(value = "SELECT c FROM Category c WHERE c.name IN :names")
     List<Category> findAllByName(@Param("names") List<String> names);

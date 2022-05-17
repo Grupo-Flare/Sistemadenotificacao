@@ -26,15 +26,14 @@ public class SubscriptionControllerRest {
     private UserRepository userRepository;
 
     @PostMapping
-    public ResponseEntity<User> subscribe(@RequestBody @Valid SubscriptionDTO subscriptionDTO) {
+    public ResponseEntity<?> subscribe(@RequestBody @Valid SubscriptionDTO subscriptionDTO) {
 
         Optional<User> user = userRepository.findByName(subscriptionDTO.getUser());
 
-        if (user.isPresent())
-            subscriptionService.saveSubscription(subscriptionDTO.toModel(user.get()));
-        else
-            ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario não encontrado");
+        if (user.isEmpty())
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario nao encontrado");
 
+        subscriptionService.saveSubscription(subscriptionDTO.toModel(user.get()));
         return ResponseEntity.ok().build();
 
     }
