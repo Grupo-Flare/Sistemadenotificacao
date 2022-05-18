@@ -6,20 +6,21 @@ import br.com.flare.model.User;
 import br.com.flare.repository.CategoryRepository;
 import br.com.flare.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.properties.bind.BindResult;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import java.util.List;
+import javax.websocket.server.PathParam;
 
-@RestController
+import java.util.List;
+import java.util.Optional;
+
+@Controller
 @RequestMapping("/user")
 public class UserController {
-
-   /*
-   * Controller de teste
-   * TODO: Deletar posteriormente
-   * */
 
     @Autowired
     private UserRepository userRepository;
@@ -27,25 +28,36 @@ public class UserController {
     @Autowired
     private CategoryRepository categoryRepository;
 
+    @GetMapping
+    public String getPage(UserDTO userDTO) {
+        return "gerenciarUsuarios";
+    }
+
     @PostMapping
-    public ResponseEntity<?> register(@RequestBody @Valid UserDTO userDTO) {
+    public String register(@Valid UserDTO userDTO) {
 
-        List<Category> categoryAllByName = categoryRepository.findAllByName(userDTO.getCategories());
+        User user = userDTO.toModel();
 
-        if (categoryAllByName.isEmpty())
-            return ResponseEntity.notFound().build();
-
-        User user = userDTO.toModel(categoryAllByName);
         userRepository.save(user);
 
-        return ResponseEntity.ok().build();
+        return "redirect:/user";
 
     }
 
-    @GetMapping
-    public ResponseEntity<?> getUsers() {
-        List<User> all = userRepository.findAll();
-        return ResponseEntity.ok(all);
+    @GetMapping("/delete")
+    public String delete(@RequestParam String name) {
+
+        System.out.println("Nome: " + name);
+        Optional<User> user = userRepository.findByName(name);
+
+        if (user.isEmpty()) {
+            System.out.println("Usuario não encontrado!!!");
+            return "gerenciarUsuarios";
+        }
+        
+        userRepository.delete(user.get());
+
+        return "redirect:/user";
     }
 
 }
