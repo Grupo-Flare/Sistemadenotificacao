@@ -6,14 +6,17 @@ import br.com.flare.model.User;
 import br.com.flare.repository.CategoryRepository;
 import br.com.flare.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.properties.bind.BindResult;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-import javax.websocket.server.PathParam;
+import javax.validation.constraints.NotBlank;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,13 +32,24 @@ public class UserController {
     private CategoryRepository categoryRepository;
 
     @GetMapping
-    public String getPage(UserDTO userDTO) {
+    public String getPage(UserDTO userDTO, Model model) {
+
+        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        model.addAttribute("categorias", categories);
+
         return "gerenciarUsuarios";
     }
 
     @PostMapping
-    public String register(@Valid UserDTO userDTO) {
+    public String register(@Valid UserDTO userDTO, BindingResult result, Model model) {
 
+        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        model.addAttribute("categorias", categories);
+
+        if (result.hasErrors())
+            return "gerenciarUsuarios";
+
+        System.out.println(userDTO.getPermissao());
         User user = userDTO.toModel();
 
         userRepository.save(user);
@@ -45,7 +59,14 @@ public class UserController {
     }
 
     @GetMapping("/delete")
-    public String delete(@RequestParam String name) {
+    public String delete(@RequestParam String name, UserDTO userDTO, Model model) {
+
+        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        model.addAttribute("categorias", categories);
+
+        if (name.isBlank()) {
+            return "gerenciarUsuarios";
+        }
 
         System.out.println("Nome: " + name);
         Optional<User> user = userRepository.findByName(name);
@@ -54,7 +75,7 @@ public class UserController {
             System.out.println("Usuario não encontrado!!!");
             return "gerenciarUsuarios";
         }
-        
+
         userRepository.delete(user.get());
 
         return "redirect:/user";

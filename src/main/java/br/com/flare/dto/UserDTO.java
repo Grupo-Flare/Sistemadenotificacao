@@ -3,21 +3,23 @@ package br.com.flare.dto;
 import br.com.flare.annotations.Unique;
 import br.com.flare.model.User;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 public class UserDTO {
 
     @NotBlank
-    @NotEmpty
     private String name;
 
+    @NotBlank @Email
     @Unique(domainClass = User.class, fieldName = "email", message = "Este email já esta sendo usado!")
     private String email;
 
+    @NotBlank
     private String permissao;
 
-    public UserDTO(@NotBlank @NotEmpty String name, String email, String permissao) {
+    public UserDTO(String name, String email, String permissao) {
         this.name = name;
         this.email = email;
         this.permissao = permissao;
