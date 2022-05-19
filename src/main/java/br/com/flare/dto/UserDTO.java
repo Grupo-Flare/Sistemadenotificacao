@@ -1,11 +1,16 @@
 package br.com.flare.dto;
 
 import br.com.flare.annotations.Unique;
+import br.com.flare.model.Category;
 import br.com.flare.model.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class UserDTO {
 
@@ -16,20 +21,28 @@ public class UserDTO {
     @Unique(domainClass = User.class, fieldName = "email", message = "Este email já esta sendo usado!")
     private String email;
 
-    @NotBlank
-    private String permissao;
+    @NotEmpty
+    private List<String> permissao;
 
-    public UserDTO(String name, String email, String permissao) {
+    public UserDTO(String name, String email, List<String> permissao) {
         this.name = name;
         this.email = email;
         this.permissao = permissao;
     }
 
-    public String getPermissao() {
+    public List<String> getPermissao() {
         return permissao;
     }
 
-    public void setPermissao(String permissao) {
+    public List<Category> getListPermissions() {
+        List<Category> sendGranted = new ArrayList<>();
+       this.permissao.forEach(permitido -> {
+           sendGranted.add(new Category(permitido));
+       });
+       return sendGranted;
+    }
+
+    public void setPermissao(List<String> permissao) {
         this.permissao = permissao;
     }
 

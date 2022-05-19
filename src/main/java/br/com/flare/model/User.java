@@ -19,7 +19,10 @@ public class User {
     private String email;
 
     @ManyToMany
-    private List<Category> category;
+    private List<Category> inscribedCategories;
+
+    @ManyToMany
+    private List<Category> allowToSendNotification;
 
     public User() {
     }
@@ -54,10 +57,18 @@ public class User {
     }
 
     public List<Category> getCategory() {
-        return category;
+        return inscribedCategories;
     }
 
     public void setCategory(List<Category> category) {
-        this.category = category;
+        this.inscribedCategories = category;
+    }
+
+    public List<Category> getAllowToSendNotification() {
+        return allowToSendNotification;
+    }
+
+    public void setAllowToSendNotification(List<Category> allowToSendNotification) {
+        this.allowToSendNotification = allowToSendNotification;
     }
 }

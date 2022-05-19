@@ -163,7 +163,7 @@
           <div th:errors="*{email}"></div>
           <div>
             <label for="permissao-register">Permissão de Envio</label>
-            <select class="selectpicker" data-live-search="true" th:field="*{permissao}" name="permissao" id="permissao-register" multiple>
+            <select class="CampoNotificacao" th:field="*{permissao}" name="permissao" id="permissao-register" multiple>
               <option selected value="">Selecione</option>
               <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
                 th:text="${categoria.name}"></option>
@@ -195,28 +195,30 @@
 
     <div class="box2">
 
-      <form id="atualiza" action="/user" method="post"></form>
-      <fieldset>
-        <h2><label> Atualizar Usuário </label></h2>
+      <form id="atualiza" action="/user/update" method="post">
+        <fieldset>
+          <h2><label> Atualizar Usuário </label></h2>
 
-        <div>
-          <label for="nome-update">Nome do Usuário</label>
-          <input class="CampoNotificacao" type="text" id="nome-update" placeholder="Nome do Usuário" name="name">
-        </div>
-        <div>
-          <label for="permissao-update">Permissão de Envio</label>
-          <select class="CampoNotificacao" name="permissao" id="permissao-update">
-            <option disabled selected value="">Selecione</option>
-            <option value="all">Para Todos</option>
-            <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
-              th:text="${categoria.name}"></option>
-          </select>
-        </div>
+          <div>
+            <label for="nome-update">Nome do Usuário</label>
+            <input class="CampoNotificacao" type="text" id="nome-update" placeholder="Nome do Usuário" name="name">
+            <label for="email-update">Email do Usuário</label>
+            <input class="CampoNotificacao" type="text" id="email-update" placeholder="Email do Usuário" name="email">
+          </div>
+          <div>
+            <label for="permissao-update">Permissão de Envio</label>
+            <select class="CampoNotificacao" name="permissao" id="permissao-update">
+              <option disabled selected value="">Selecione</option>
+              <option value="all">Para Todos</option>
+              <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
+                th:text="${categoria.name}"></option>
+            </select>
+          </div>
 
 
-        <button class="atualizar" type="button" onclick="validaAtualiza()">Atualizar</button>
+          <button class="atualizar" type="button" onclick="validaAtualiza()">Atualizar</button>
 
-      </fieldset>
+        </fieldset>
       </form>
     </div>
 

@@ -9,14 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
 
 import java.util.List;
 import java.util.Optional;
@@ -52,6 +47,10 @@ public class UserController {
         System.out.println(userDTO.getPermissao());
         User user = userDTO.toModel();
 
+        // Busca as categorias a serem permitidas no banco
+        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermissao());
+        user.setAllowToSendNotification(findAllByName);
+
         userRepository.save(user);
 
         return "redirect:/user";
@@ -79,6 +78,34 @@ public class UserController {
         userRepository.delete(user.get());
 
         return "redirect:/user";
+    }
+
+    @PostMapping("/update")
+    public String update(UserDTO userDTO, BindingResult result, Model model) {
+
+        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        model.addAttribute("categorias", categories);
+
+        if (result.hasErrors())
+            return "gerenciarUsuarios";
+
+        System.out.println(userDTO.getPermissao());
+        User user = userDTO.toModel();
+
+        Optional<User> byName = userRepository.findByName(user.getName());
+
+        if (byName.isEmpty()) {
+            System.out.println("Não encontrado");
+            return "gerenciarUsuarios";
+        }
+
+        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermissao());
+        byName.get().getAllowToSendNotification().addAll(findAllByName);
+
+        userRepository.save(byName.get());
+
+        return "redirect:/user";
+
     }
 
 }
