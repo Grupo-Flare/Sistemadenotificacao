@@ -36,9 +36,17 @@ ALTER TABLE subscriptions ADD CONSTRAINT uc_subscriptions_token UNIQUE (token);
 ALTER TABLE subscriptions ADD CONSTRAINT FK_SUBSCRIPTIONS_ON_USER FOREIGN KEY (user_id) REFERENCES users (id);
 
 
-CREATE table IF NOT exists users_category (
+CREATE table IF NOT exists users_inscribed_categories (
 	user_id int8 NOT NULL,
-	category_id int8 NOT NULL
+	inscribed_categories_id int8 NOT NULL,
+	CONSTRAINT fka9cs7xdmwvy9nl80wvv2eulkb FOREIGN KEY (inscribed_categories_id) REFERENCES categories(id),
+	CONSTRAINT fkkudl6u1j9kgutap7on03f921l FOREIGN KEY (user_id) REFERENCES users(id)
 );
-ALTER TABLE public.users_category ADD CONSTRAINT fkdydsp05ralpwbvr6egtx9q11p FOREIGN KEY (user_id) REFERENCES users(id);
-ALTER TABLE public.users_category ADD CONSTRAINT fklvu6ubxyoywr544e84pjxy2mr FOREIGN KEY (category_id) REFERENCES categories(id);
+
+
+CREATE table IF NOT exists users_allow_to_send_notification (
+	user_id int8 NOT NULL,
+	allow_to_send_notification_id int8 NOT NULL,
+	CONSTRAINT fk7riy6eckuwxfmtp8fp8lw18fi FOREIGN KEY (allow_to_send_notification_id) REFERENCES categories(id),
+	CONSTRAINT fkoo126nr7w878h8o069w12b4pm FOREIGN KEY (user_id) REFERENCES users(id)
+);

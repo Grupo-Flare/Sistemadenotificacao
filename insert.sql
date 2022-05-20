@@ -27,9 +27,8 @@ INSERT INTO subscriptions
 ('cNdGC2jnrpwKUmTsxAe0vW:APA91bGn1hjs6peoVdKxQV9SlNCRopbZTmwaxFxRXc9j3PBl59DSrJc3MW97JjmeEyZ0usfFgXTWW8KRPfPgYoPuFCbAvr3XoI4srB3-FYKtQkggReVmADHVEpTb_W-8vPNncQWhpNTr', 5),
 ('e_hwo8ihUfcq3rq0znyGop:APA91bGERz9tvT6rqFHJg0B4Pc-vmd6yWU_TMFmVDJ0quMvJ9tfrlLXwumKIfpDydKfN7cVIfzWFXyUJr-Y4NsIKA_ibFO49h9yqdGIupQ2Y-_RsFyl1VC1qITqGUObAw6PwArRdRlcG', 6);
 
-
-INSERT INTO users_category
-(user_id, category_id) VALUES
+INSERT INTO users_inscribed_categories
+(user_id, inscribed_categories_id) VALUES
 (1, 1),
 (1, 3),
 (2, 4),
