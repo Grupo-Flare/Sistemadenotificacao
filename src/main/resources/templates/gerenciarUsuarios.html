@@ -163,12 +163,29 @@
           <div th:errors="*{email}"></div>
           <div>
             <label for="permissao-register">Permissão de Envio</label>
-            <select class="CampoNotificacao" th:field="*{permissao}" name="permissao" id="permissao-register" multiple>
-              <option selected value="">Selecione</option>
-              <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
-                th:text="${categoria.name}"></option>
-            </select>
-          </div>
+
+            <div class="multiselect">
+              <div class="selectBox" onclick="showCheckboxes()">
+                <select class="CampoNotificacao">
+                  <option>Select an option</option>
+                </select>
+                <div class="overSelect"></div>
+              </div>
+              <div id="checkboxes">
+                <label for="one">
+                  <input type="checkbox" id="one" />First checkbox</label>
+                <label for="two">
+                  <input type="checkbox" id="two" />Second checkbox</label>
+                <label for="three">
+                  <input type="checkbox" id="three" />Third checkbox</label>
+                  <label for="one">
+                    <input type="checkbox" id="one" />First checkbox</label>
+                  <label for="two">
+                    <input type="checkbox" id="two" />Second checkbox</label>
+                  <label for="three">
+                    <input type="checkbox" id="three" />Third checkbox</label>
+              </div>
+            </div>
 
           <button class="botao" type="button" onclick="validaCadastro()">Cadastrar</button>
 
@@ -282,3 +299,4 @@
 </body>
 
 </html>
+
