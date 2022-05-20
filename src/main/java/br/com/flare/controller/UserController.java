@@ -54,7 +54,7 @@ public class UserController {
 
         User user = userDTO.toModel();
         // Busca as categorias a serem permitidas no banco
-        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermissao());
+        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermission());
         user.setAllowToSendNotification(findAllByName);
 
         userRepository.save(user);
@@ -101,7 +101,7 @@ public class UserController {
             return "gerenciarUsuarios";
         }
 
-        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermissao());
+        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermission());
         byName.get().getAllowToSendNotification().addAll(findAllByName);
 
         userRepository.save(byName.get());

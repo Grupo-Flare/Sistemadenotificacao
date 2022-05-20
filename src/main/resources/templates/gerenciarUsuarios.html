@@ -176,18 +176,12 @@
                                 <div class="overSelect"></div>
                             </div>
                             <div id="checkboxes">
-                                <label for="one">
-                                    <input type="checkbox" id="one" />First checkbox</label>
-                                <label for="two">
-                                    <input type="checkbox" id="two" />Second checkbox</label>
-                                <label for="three">
-                                    <input type="checkbox" id="three" />Third checkbox</label>
-                                <label for="one">
-                                    <input type="checkbox" id="one" />First checkbox</label>
-                                <label for="two">
-                                    <input type="checkbox" id="two" />Second checkbox</label>
-                                <label for="three">
-                                    <input type="checkbox" id="three" />Third checkbox</label>
+                                <div class="checks" th:each="categoria : ${categorias}">
+                                    <input type="checkbox" th:field="*{permission}" th:value="${categoria.name}"
+                                        value="" />
+                                    <label th:for="${#ids.prev('permission')}" th:text="${categoria.name}">One</label>
+                                </div>
+                                <div th:errors="*{permission}"></div>
                             </div>
                         </div>
 
@@ -236,14 +230,22 @@
                     </div>
                     <div>
                         <label for="permissao-update">Permissão de Envio</label>
-                        <select class="CampoNotificacao" th:field="*{permissao}" th:errorclass="is-invalid"
-                            name="permissao" id="permissao-update">
-                            <option disabled selected value="">Selecione</option>
-                            <option value="all">Para Todos</option>
-                            <option th:each="categoria : ${categorias}" th:value="${categoria.name}" value=""
-                                th:text="${categoria.name}"></option>
-                        </select>
-                        <div th:errors="*{permissao}"></div>
+                        <div class="multiselect">
+                            <div class="selectBox" onclick="showCheckboxes2()">
+                                <select class="CampoNotificacao">
+                                    <option>Select an option</option>
+                                </select>
+                                <div class="overSelect"></div>
+                            </div>
+                            <div id="checkboxes2">
+                                <div class="checks" th:each="categoria : ${categorias}">
+                                    <input type="checkbox" th:field="*{permission}" th:value="${categoria.name}"
+                                        value="" />
+                                    <label th:for="${#ids.prev('permission')}" th:text="${categoria.name}">One</label>
+                                </div>
+                                <div th:errors="*{permission}"></div>
+                            </div>
+                        </div>
                     </div>
 
 

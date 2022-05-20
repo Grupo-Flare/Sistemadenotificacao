@@ -11,30 +11,30 @@ import javax.validation.constraints.NotEmpty;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class UserDTO {
 
     @NotBlank
     private String name;
 
-    @NotBlank @Email
+    @NotBlank
+    @Email
     private String email;
 
     @NotEmpty
-    private List<String> permissao;
+    private List<String> permission;
 
-    public UserDTO(String name, String email, List<String> permissao) {
+    public UserDTO(String name, String email, List<String> permission) {
         this.name = name;
         this.email = email;
-        this.permissao = permissao;
+        this.permission = permission;
     }
 
-    public List<String> getPermissao() {
-        return permissao;
+    public List<String> getPermission() {
+        return permission;
     }
 
-    public void setPermissao(List<String> permissao) {
-        this.permissao = permissao;
+    public void setPermission(List<String> permission) {
+        this.permission = permission;
     }
 
     public User toModel() {

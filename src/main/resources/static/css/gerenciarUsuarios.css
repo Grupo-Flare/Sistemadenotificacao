@@ -288,6 +288,26 @@ a svg:hover {
   background-color: #1e90ff;
 }
 
+#checkboxes2 {
+  display: none;
+  /* border: 1px #dadada solid; */
+}
+
+
+#checkboxes2 label {
+  display: block;
+}
+
+#checkboxes2 label:hover {
+  background-color: #1e90ff;
+}
+
+.checks {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 @media (min-width: 768px) {
 
   .bd-placeholder-img-lg {

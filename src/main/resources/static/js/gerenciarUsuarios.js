@@ -3,7 +3,7 @@ function validaCadastro() {
     var formulario = document.getElementById("cadastro")
     var nome = document.getElementById("nome-register")
     var email = document.getElementById("email-register");
-    var permissao = document.getElementById("permissao-register");
+    // var permissao = document.getElementById("checkboxes");
 
     if (nome.value == "") {
         nome.focus();
@@ -17,11 +17,11 @@ function validaCadastro() {
         return;
     }
 
-    if (permissao.options[permissao.selectedIndex].value == "") {
-        permissao.focus();
-        alert("Selecione em quais categorias o usuarios poder enviar notificações.")
-        return;
-    }
+    // if (permissao.options[permissao.selectedIndex].value == "") {
+    //     permissao.focus();
+    //     alert("Selecione em quais categorias o usuarios poder enviar notificações.")
+    //     return;
+    // }
 
     formulario.submit();
 }
@@ -61,15 +61,29 @@ function validaAtualiza() {
     formulario.submit();
 }
 
-var expanded = false;
 
+var expanded = false;
 function showCheckboxes() {
-  var checkboxes = document.getElementById("checkboxes");
-  if (!expanded) {
-    checkboxes.style.display = "block";
-    expanded = true;
-  } else {
-    checkboxes.style.display = "none";
-    expanded = false;
-  }
+
+    let checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+        checkboxes.style.display = "block";
+        expanded = true;
+    } else {
+        checkboxes.style.display = "none";
+        expanded = false;
+    }
+}
+
+var expanded2 = false;
+function showCheckboxes2() {
+
+    let checkboxes2 = document.getElementById("checkboxes2");
+    if (!expanded2) {
+        checkboxes2.style.display = "block";
+        expanded2 = true;
+    } else {
+        checkboxes2.style.display = "none";
+        expanded2 = false;
+    }
 }
