@@ -4,7 +4,9 @@ import br.com.flare.dto.SubscriptionDTO;
 import br.com.flare.exceptionHandler.ApiErrorException;
 import br.com.flare.exceptionHandler.ApiErrorsOutput;
 import br.com.flare.model.Subscription;
+import br.com.flare.model.User;
 import br.com.flare.repository.SubscriptionRepository;
+import br.com.flare.repository.UserRepository;
 import br.com.flare.service.SubscriptionService;
 import br.com.flare.utils.JsonUtils;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,6 +23,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.Optional;
 import java.util.UUID;
 
 import static org.mockito.Mockito.*;
@@ -41,6 +44,9 @@ class SubscriptionControllerRestTest {
 
     @MockBean
     private SubscriptionService subscriptionService;
+
+    @MockBean
+    private UserRepository userRepository;
 
     private SubscriptionDTO subscriptionDTO;
 
@@ -70,10 +76,14 @@ class SubscriptionControllerRestTest {
     @Test
     void deveRetornarOk() throws Exception {
         subscriptionDTO.setToken(UUID.randomUUID().toString());
+        subscriptionDTO.setUser("");
+
+        when(userRepository.findByName(""))
+                .thenReturn(Optional.of(new User("", "")));
 
         doNothing()
                 .when(subscriptionService)
-                .saveSubscription(subscriptionDTO.toModel());
+                .saveSubscription(subscriptionDTO.toModel(new User("", "")));
 
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/subscription")
@@ -86,9 +96,13 @@ class SubscriptionControllerRestTest {
     @Test
     void deveRetornarBadRequestParaTokenInvalido() throws Exception {
         subscriptionDTO.setToken(UUID.randomUUID().toString());
+        subscriptionDTO.setUser("");
 
         ApiErrorsOutput apiErrorsOutput = new ApiErrorsOutput();
         apiErrorsOutput.addError("Erro! O token é invalido");
+
+        when(userRepository.findByName(""))
+                .thenReturn(Optional.of(new User("", "")));
 
         doThrow(new ApiErrorException(HttpStatus.BAD_REQUEST, "Erro! O token é invalido"))
                 .when(subscriptionService)
@@ -106,9 +120,11 @@ class SubscriptionControllerRestTest {
 
     @Test
     void deveRetornarUnprocessableEntityParaTokenJaRegistrado() throws Exception {
+        User user = userRepository.save(new User("randomUser", "user@email.com"));
+
         subscriptionDTO.setToken(UUID.randomUUID().toString());
 
-        subscriptionRepository.save(subscriptionDTO.toModel());
+        subscriptionRepository.save(subscriptionDTO.toModel(user));
 
         ApiErrorsOutput apiErrorsOutput = new ApiErrorsOutput();
         apiErrorsOutput.addError("O objeto já existe na base de dados");
@@ -120,6 +136,28 @@ class SubscriptionControllerRestTest {
                         .content(JsonUtils.toJson(subscriptionDTO)))
                 .andExpect(status().isUnprocessableEntity())
                 .andExpect(content().json(JsonUtils.toJson(apiErrorsOutput)));
+
+        userRepository.deleteAll();
+    }
+
+    /*
+         ESSE TESTE UTILIZA O BANCO DE DADOS DE VERDADE,
+         DEIXE O BANCO EXECUTANDO COM DADOS JÁ INSERIDOS
+     */
+    @Test
+    void naoDeveSalvarNoBancoPushSeUsuarioNaoEncontrado() throws Exception {
+
+        subscriptionDTO.setToken("cdSrO1-rCBFBT1IV5UlL6D:APA91bGG1WnVutYFIl_WkWc2wkEVGM0l1VaMl0QNTZPSd1Uv87Kn3jweT2_JLwvMvKpLzKOqOxpAegPlbxPaYXbSxGx01WhHQ_uFqQde1vchRUdPQlUJ6ZWCDVcSrxLRJMvkeDwvqui1");
+        subscriptionDTO.setUser("randomName");
+
+        mockMvc
+                .perform(MockMvcRequestBuilders.post("/subscription")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .accept(MediaType.APPLICATION_JSON)
+                        .content(JsonUtils.toJson(subscriptionDTO)))
+                .andExpect(status().isNotFound())
+                .andExpect(content().string("Usuario nao encontrado"));
+
     }
 
 }

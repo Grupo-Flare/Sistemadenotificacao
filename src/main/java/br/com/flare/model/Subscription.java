@@ -12,12 +12,24 @@ public class Subscription {
 
   @Column(nullable = false, unique = true) // Restrição no banco em que o campo não pode ser nulo e deve ser unico
   private String token;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
+
+  public User getUser() {
+    return user;
+  }
+
+  public void setUser(User user) {
+    this.user = user;
+  }
 
   public Subscription() {
   }
 
-  public Subscription(String token) {
+  public Subscription(String token, User user) {
     this.token = token;
+    this.user = user;
   }
 
   public String getToken() {
