@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.Valid;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -44,16 +46,20 @@ public class UserController {
         if (result.hasErrors())
             return "gerenciarUsuarios";
 
-        System.out.println(userDTO.getPermissao());
-        User user = userDTO.toModel();
+        Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
+        if (userByEmail.isPresent()) {
+            model.addAttribute("emailerror", "Este email já está sendo usado");
+            return "gerenciarUsuarios";
+        }
 
+        User user = userDTO.toModel();
         // Busca as categorias a serem permitidas no banco
         List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermissao());
         user.setAllowToSendNotification(findAllByName);
 
         userRepository.save(user);
 
-        return "redirect:/user";
+        return "gerenciarUsuarios";
 
     }
 
@@ -67,11 +73,9 @@ public class UserController {
             return "gerenciarUsuarios";
         }
 
-        System.out.println("Nome: " + name);
         Optional<User> user = userRepository.findByName(name);
-
         if (user.isEmpty()) {
-            System.out.println("Usuario não encontrado!!!");
+            model.addAttribute("nameDerror", "Usuario não encontrado!!!");
             return "gerenciarUsuarios";
         }
 
@@ -81,7 +85,7 @@ public class UserController {
     }
 
     @PostMapping("/update")
-    public String update(UserDTO userDTO, BindingResult result, Model model) {
+    public String update(@Valid UserDTO userDTO, BindingResult result, Model model) {
 
         List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
@@ -89,13 +93,11 @@ public class UserController {
         if (result.hasErrors())
             return "gerenciarUsuarios";
 
-        System.out.println(userDTO.getPermissao());
         User user = userDTO.toModel();
 
-        Optional<User> byName = userRepository.findByName(user.getName());
-
+        Optional<User> byName = userRepository.findByNameAndEmail(user.getName(), userDTO.getEmail());
         if (byName.isEmpty()) {
-            System.out.println("Não encontrado");
+            model.addAttribute("nameUerror", "Usuario não encontrado");
             return "gerenciarUsuarios";
         }
 

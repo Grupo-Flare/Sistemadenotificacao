@@ -18,7 +18,6 @@ public class UserDTO {
     private String name;
 
     @NotBlank @Email
-    @Unique(domainClass = User.class, fieldName = "email", message = "Este email já esta sendo usado!")
     private String email;
 
     @NotEmpty
@@ -32,14 +31,6 @@ public class UserDTO {
 
     public List<String> getPermissao() {
         return permissao;
-    }
-
-    public List<Category> getListPermissions() {
-        List<Category> sendGranted = new ArrayList<>();
-       this.permissao.forEach(permitido -> {
-           sendGranted.add(new Category(permitido));
-       });
-       return sendGranted;
     }
 
     public void setPermissao(List<String> permissao) {
