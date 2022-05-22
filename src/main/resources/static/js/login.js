@@ -1,30 +1,33 @@
 // function to set a given theme/color-scheme
 function setTheme(themeName) {
-    localStorage.setItem('theme', themeName);
+    document.getElementById("login").className = themeName;
     document.documentElement.className = themeName;
 }
 // function to toggle between light and dark theme
 function toggleTheme() {
     let change = document.getElementById("change_theme");
+    let emge_dhc = document.getElementById("emge_dhc");
 
-    if (localStorage.getItem('theme') === 'theme-dark') {
+    if (document.getElementById("login").className === 'theme-dark') {
         setTheme('theme-light');
-        change.src = "/images/dark_mode.svg";
-        change.setAttribute("fill", "black");
+        change.innerHTML = "dark_mode";
+        emge_dhc.src = "/images/logo_emge_dhc.png";
     } else {
         setTheme('theme-dark');
-        change.src = "/images/light_mode.svg";
-        change.setAttribute("fill", "white");
+        change.innerHTML = "light_mode";
+        emge_dhc.src = "/images/logo_emge_dhc_branco.png";
     }
 }
 // Immediately invoked function to set the theme on initial load
 (function () {
     let change = document.getElementById("change_theme");
-    if (localStorage.getItem('theme') === 'theme-dark') {
+    if (document.getElementById("login").className === 'theme-dark') {
         setTheme('theme-dark');
-        change.src = "/images/light_mode.svg";
+        change.innerHTML = "light_mode";
+        emge_dhc.src = "/images/logo_emge_dhc_branco.png";
     } else {
         setTheme('theme-light');
-        change.src = "/images/dark_mode.svg";
+        change.innerHTML = "dark_mode";
+        emge_dhc.src = "/images/logo_emge_dhc.png";
     }
 })();
