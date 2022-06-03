@@ -118,7 +118,18 @@
 
 
             <div class="flex-shrink-0 dropdown">
-                <img src="/images/presleyson.png" alt="Foto de perfil" width="50" height="50" class="rounded-circle">
+                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
+                    aria-expanded="false"> <img src="/images/presleyson.png" alt="Foto de perfil" width="50" height="50"
+                        class="rounded-circle "></a>
+                <ul class="dropdown-menu text-small shadow azul-escuro alinha-centro perfil-drop">
+                    <li class="dropdown-item itens-menu">Configurações</li>
+                    <li>
+                        <hr class="dropdown-divider vermelho">
+                    </li>
+                    <li class="dropdown-item itens-menu"><a onclick="document.querySelector('#form-logout').submit()"
+                            class="text-light" href="#">Sair</a></li>
+                    <form id="form-logout" th:action="@{/logout}" method="post"></form>
+                </ul>
             </div>
         </div>
     </div>
