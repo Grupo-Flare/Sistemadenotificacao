@@ -12,8 +12,6 @@ public class SubscriptionDTO {
   @NotBlank @NotNull @Unique(domainClass = Subscription.class, fieldName = "token")
   private String token;
 
-  private String user;
-
   public SubscriptionDTO() {
   }
 
@@ -27,14 +25,6 @@ public class SubscriptionDTO {
 
   public String getToken() {
     return token;
-  }
-
-  public String getUser() {
-    return user;
-  }
-
-  public void setUser(String user) {
-    this.user = user;
   }
 
   public Subscription toModel(User user) {

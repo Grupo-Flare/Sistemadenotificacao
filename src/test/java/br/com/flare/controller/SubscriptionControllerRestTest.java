@@ -76,7 +76,6 @@ class SubscriptionControllerRestTest {
     @Test
     void deveRetornarOk() throws Exception {
         subscriptionDTO.setToken(UUID.randomUUID().toString());
-        subscriptionDTO.setUser("");
 
         when(userRepository.findByName(""))
                 .thenReturn(Optional.of(new User("", "")));
@@ -96,7 +95,6 @@ class SubscriptionControllerRestTest {
     @Test
     void deveRetornarBadRequestParaTokenInvalido() throws Exception {
         subscriptionDTO.setToken(UUID.randomUUID().toString());
-        subscriptionDTO.setUser("");
 
         ApiErrorsOutput apiErrorsOutput = new ApiErrorsOutput();
         apiErrorsOutput.addError("Erro! O token é invalido");
@@ -148,7 +146,6 @@ class SubscriptionControllerRestTest {
     void naoDeveSalvarNoBancoPushSeUsuarioNaoEncontrado() throws Exception {
 
         subscriptionDTO.setToken("cdSrO1-rCBFBT1IV5UlL6D:APA91bGG1WnVutYFIl_WkWc2wkEVGM0l1VaMl0QNTZPSd1Uv87Kn3jweT2_JLwvMvKpLzKOqOxpAegPlbxPaYXbSxGx01WhHQ_uFqQde1vchRUdPQlUJ6ZWCDVcSrxLRJMvkeDwvqui1");
-        subscriptionDTO.setUser("randomName");
 
         mockMvc
                 .perform(MockMvcRequestBuilders.post("/subscription")
