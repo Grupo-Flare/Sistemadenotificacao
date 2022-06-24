@@ -1,6 +1,6 @@
 {
     
-    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.configuration.updateBuildConfiguration": "automatic",
     "liveServer.settings.root": "src/main/resources/templates",
     "liveServer.settings.mount": [
         ["/", "src/main/resources/static/"],

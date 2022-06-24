@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+
+import java.security.Principal;
 import java.util.Optional;
 
 @RestController
@@ -26,9 +28,9 @@ public class SubscriptionControllerRest {
     private UserRepository userRepository;
 
     @PostMapping
-    public ResponseEntity<?> subscribe(@RequestBody @Valid SubscriptionDTO subscriptionDTO) {
+    public ResponseEntity<?> subscribe(@RequestBody @Valid SubscriptionDTO subscriptionDTO, Principal principal) {
 
-        Optional<User> user = userRepository.findByName(subscriptionDTO.getUser());
+        Optional<User> user = userRepository.findByName(principal.getName());
 
         if (user.isEmpty())
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Usuario nao encontrado");

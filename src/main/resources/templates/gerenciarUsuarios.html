@@ -175,14 +175,17 @@
                                 </select>
                                 <div class="overSelect"></div>
                             </div>
-                            <div id="checkboxes">
+                            <!-- <div id="checkboxes">
                                 <div class="checks" th:each="categoria : ${categorias}">
                                     <input type="checkbox" th:field="*{permission}" th:value="${categoria.name}"
                                         value="" />
                                     <label th:for="${#ids.prev('permission')}" th:text="${categoria.name}">One</label>
                                 </div>
                                 <div th:errors="*{permission}"></div>
-                            </div>
+                            </div> -->
+                            <select class="checks selectpicker" multiple>
+                                <option th:each="categoria : ${categorias}" th:field="*{permission}" th:value="${categoria.name}" value="" th:text="${categoria.name}">Mustard</option>
+                            </select>
                         </div>
 
                         <button class="botao" type="button" onclick="validaCadastro()">Cadastrar</button>

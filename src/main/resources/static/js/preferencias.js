@@ -78,7 +78,6 @@ function sendSubscriptionToServer(token) {
   //Corpo da requisição
   var body = JSON.stringify({
     "token": token,
-    "user": "user" 
   });
 
   var requestOptions = {
