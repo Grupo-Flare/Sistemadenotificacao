@@ -4,7 +4,7 @@ import br.com.flare.dto.NotificationDTO;
 import br.com.flare.exceptionHandler.MvcErrorException;
 import br.com.flare.model.Category;
 import br.com.flare.model.Note;
-import br.com.flare.repository.CategoryRepository;
+import br.com.flare.repository.ChannelRepository;
 import br.com.flare.repository.NotificationRepository;
 import br.com.flare.service.NotificationSenderService;
 import com.google.firebase.messaging.FirebaseMessagingException;
@@ -29,19 +29,19 @@ public class NotificationController {
 
     private final NotificationSenderService notificationSenderService;
     private final NotificationRepository notificationRepository;
-    private final CategoryRepository categoryRepository;
+    private final ChannelRepository channelRepository;
 
     @Autowired
-    public NotificationController(NotificationSenderService notificationSenderService, NotificationRepository notificationRepository, CategoryRepository categoryRepository) {
+    public NotificationController(NotificationSenderService notificationSenderService, NotificationRepository notificationRepository, ChannelRepository channelRepository) {
         this.notificationSenderService = notificationSenderService;
         this.notificationRepository = notificationRepository;
-        this.categoryRepository = categoryRepository;
+        this.channelRepository = channelRepository;
     }
 
     @GetMapping
     public String form(NotificationDTO notificationDTO, Model model) {
 
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         return "envia-notificacao";
@@ -96,7 +96,7 @@ public class NotificationController {
             model.addAttribute("notificacoes", notifications);
 
         // TODO: Filtar somente pelas categorias em que o usuario esta cadastrado
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         return "historicoNotificacao";

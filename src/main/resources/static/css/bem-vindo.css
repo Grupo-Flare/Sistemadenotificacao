@@ -1,0 +1,156 @@
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+        .bd-placeholder-img {
+          font-size: 1.125rem;
+          text-anchor: middle;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          user-select: none;
+        }
+  
+        @media (min-width: 768px) {
+
+          .bd-placeholder-img-lg {
+            font-size: 3.5rem;
+          }
+
+        }
+
+        @media(max-width:768px) {
+
+          .menu-footer{
+            display: none;
+          }
+
+          .texto-titulo-header{
+        margin-left: 0px !important;
+        }
+
+        .espaco-mobile{
+          margin-left: 20px;
+          margin-right: 20px;
+        }
+
+        }
+
+        .texto-titulo-header{
+        color: white !important;
+        font-size: 30px;
+        font-weight: bold;
+        float: middle;
+        margin-left: 140px;
+        }
+
+        .texto-titulo-pagina{
+        color: white !important;
+        font-size: 30px;
+        font-weight: 300 !important;
+        float: middle;
+        text-align: center;
+        padding-top: 30px;
+        }
+
+        *{
+            font-family: 'Comfortaa', cursive;
+        }
+
+        p, div, span{
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        h1{
+          font-weight: 500;
+          font-size: 32px;
+        }
+
+        h2{
+          font-weight: 500;
+          font-size: 26px;
+        }
+
+        button:hover{
+          background-color: #19C416;
+          color: white;
+        }
+
+        body{
+          background-color: #05092B;
+        }
+
+        .foto-perfil{
+          border-width: 100px !important;
+          border-color: #C41632 !important;
+        }
+
+        .footer-site{
+         background-color: #C41632 !important; 
+        }
+
+        .icone-rodape{
+          margin-left: 20px;
+        }
+
+        a svg:hover{
+          opacity: 70%;
+        }
+
+        .icone-rodape2{
+          margin-left: 10px;
+        }
+
+        .vermelho{
+          color: #C41632;
+        }
+
+        .azul-escuro{
+          background-color: #05092A;
+        }
+        
+        .alinha-centro{
+          text-align: center;
+        }
+
+        .titulos-menu{
+          color: white;
+          font-size: 20px;
+        }
+
+        .itens-menu{
+          color: white;
+        }
+
+        .itens-menu:hover{
+          background-color: #19C416;
+          color: white !important;
+        }
+
+        .corpo-tela{
+          padding-top: 30px;
+        }
+
+        .footer-emge{
+          color: white;
+          font-weight: 500;
+          font-size: 22px;
+          margin: 0 auto;
+        }
+
+        .botao{
+          font-size: 20px;
+          font-weight: 500;
+          color: white;
+          background-color: rgba(197, 22, 51, 0.4);
+          border-width: 0;
+          border-radius: 30px;
+          margin-top: 20px;
+          padding: 15px 15px 15px 15px;
+          width: 350px;
+          max-width: 350px;
+          text-align: center;
+        }
+
+        .botoes-bem-vindo{
+          padding-bottom: 90px !important;
+        }
+

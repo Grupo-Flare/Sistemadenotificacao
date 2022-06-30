@@ -2,7 +2,7 @@ package br.com.flare.service;
 
 import br.com.flare.model.Note;
 import br.com.flare.model.Subscription;
-import br.com.flare.repository.CategoryRepository;
+import br.com.flare.repository.ChannelRepository;
 import br.com.flare.repository.SubscriptionRepository;
 import br.com.flare.scheduler.JobSchedule;
 import com.google.firebase.messaging.*;
@@ -20,14 +20,14 @@ public class NotificationSenderService {
 
     private final FirebaseMessaging firebaseMessaging;
     private final SubscriptionRepository subscriptionRepository;
-    private final CategoryRepository categoryRepository;
+    private final ChannelRepository channelRepository;
     private final JobSchedule jobSchedule;
 
     @Autowired
-    public NotificationSenderService(FirebaseMessaging firebaseMessaging, SubscriptionRepository subscriptionRepository, CategoryRepository categoryRepository, JobSchedule jobSchedule) {
+    public NotificationSenderService(FirebaseMessaging firebaseMessaging, SubscriptionRepository subscriptionRepository, ChannelRepository channelRepository, JobSchedule jobSchedule) {
         this.firebaseMessaging = firebaseMessaging;
         this.subscriptionRepository = subscriptionRepository;
-        this.categoryRepository = categoryRepository;
+        this.channelRepository = channelRepository;
         this.jobSchedule = jobSchedule;
     }
 

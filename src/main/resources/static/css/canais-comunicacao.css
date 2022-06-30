@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.imagemImput {
+    margin: 30px;
+    width: 30%;
+    height: 40px;
+
+}
+
+.imagemImput input[type='search'] {
+    /* background: transparent; */
+    float: left;
+    width: 80%;
+    height: 100%;
+    border: none;
+
+}
+
+.imagemImput button {
+
+    border: none;
+    background: #cccccc;
+    float: left;
+    width: 20%;
+    height: 100%;
+    border-radius: 0px 8px 8px 0px;
+
+}
+
+button {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+
+}
+
+.filtro {
+
+    text-align: center;
+    background: #D8D6D6;
+    border-radius: 8px 0px 0px 8px;
+    border: none;
+    box-shadow: 10px 10px 20px #000000;
+
+}
+
+.esconder {
+    display: none;
+}
+
+.titulo-principal {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: center;
+    margin-top: 30px;
+    /* text-shadow: 2px 2px 2px rgba(204, 174, 27, 0.811); */
+    color: white;
+}
+
+.principal p {
+    font-size: 16px;
+    line-height: 18px;
+    margin: 20px;
+    color: white;
+    text-align: center
+}
+
+.texto p {
+    color: white;
+    margin: 20px;
+    position: fixed;
+    bottom: 120px;
+
+}
+
+form label {
+    display: block;
+    font-size: 20px;
+    margin: 20px;
+    margin-left: 20%;
+    color: white
+}
+
+button+p {
+    padding-bottom: 200px;
+    color: white
+}
+
+
+footer a:hover {
+
+    text-decoration: underline;
+    color: #05092B;
+}
+
+/* ESTILO DP CAIO */
+
+.texto-titulo-header {
+    color: white !important;
+    font-size: 30px;
+    font-weight: bold;
+    float: middle;
+    margin-left: 140px;
+}
+
+* {
+    font-family: 'Comfortaa', cursive;
+
+}
+
+p,
+div,
+span {
+    font-weight: 500;
+    font-size: 16px;
+}
+
+h1 {
+    font-weight: 500;
+    font-size: 32px;
+}
+
+h2 {
+    font-weight: 500;
+    font-size: 26px;
+}
+
+button:hover {
+    color: white;
+    transform: scale(1.2);
+    border-radius: 8px;
+}
+
+body {
+    background-color: #05092B;
+}
+
+.canais {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+}
+
+.inscrever {
+    background-color: green;
+    border: none;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.cancelar{
+    background-color: #C41632;
+    border: none;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.canais span {
+    margin-left: 50px;
+}
+
+.foto-perfil {
+    border-width: 100px !important;
+    border-color: white;
+}
+
+.footer-site {
+    background-color: #C41632 !important;
+}
+
+.icone-rodape {
+    margin-left: 20px;
+}
+
+a svg:hover {
+    opacity: 70%;
+}
+
+.icone-rodape2 {
+    margin-left: 10px;
+}
+
+.vermelho {
+    color: #C41632;
+}
+
+.azul-escuro {
+    background-color: #05092A;
+}
+
+.alinha-centro {
+    text-align: center;
+}
+
+.titulos-menu {
+    color: white;
+    font-size: 20px;
+}
+
+.itens-menu {
+    color: white;
+}
+
+.itens-menu:hover {
+    background-color: #19C416;
+    color: white !important;
+}
+
+@media (min-width: 768px) {
+
+    .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+    }
+
+}
+
+@media(max-width:768px) {
+
+    .menu-footer {
+        display: none;
+    }
+
+    .texto-titulo-header {
+        margin-left: 0px !important;
+    }
+
+    .esconder {
+        display: block;
+
+    }
+
+    .imagemImput button {
+        float: none;
+        width: 50px;
+    }
+
+    .imagemImput {
+        width: 250px;
+    }
+
+    form label {
+        margin: 30px;
+    }
+
+    .principal p {
+        text-align: left;
+        margin: 16px;
+    }
+
+    .texto p {
+        bottom: 20px;
+    }
+
+}

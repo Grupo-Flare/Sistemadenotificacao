@@ -3,7 +3,7 @@ package br.com.flare.controller;
 import br.com.flare.dto.NotificationDTO;
 import br.com.flare.model.Category;
 import br.com.flare.model.Note;
-import br.com.flare.repository.CategoryRepository;
+import br.com.flare.repository.ChannelRepository;
 import br.com.flare.repository.NotificationRepository;
 import br.com.flare.repository.SubscriptionRepository;
 import br.com.flare.service.NotificationSenderService;
@@ -49,7 +49,7 @@ public class NotificationControllerTest {
     private NotificationRepository notificationRepository;
 
     @MockBean
-    private CategoryRepository categoryRepository;
+    private ChannelRepository channelRepository;
 
     private NotificationDTO notificationDTO;
 

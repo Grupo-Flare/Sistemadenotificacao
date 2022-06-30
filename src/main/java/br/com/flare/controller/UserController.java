@@ -3,7 +3,7 @@ package br.com.flare.controller;
 import br.com.flare.dto.UserDTO;
 import br.com.flare.model.Category;
 import br.com.flare.model.User;
-import br.com.flare.repository.CategoryRepository;
+import br.com.flare.repository.ChannelRepository;
 import br.com.flare.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -26,12 +26,12 @@ public class UserController {
     private UserRepository userRepository;
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ChannelRepository channelRepository;
 
     @GetMapping
     public String getPage(UserDTO userDTO, Model model) {
 
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         return "gerenciarUsuarios";
@@ -40,7 +40,7 @@ public class UserController {
     @PostMapping
     public String register(@Valid UserDTO userDTO, BindingResult result, Model model) {
 
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         if (result.hasErrors())
@@ -54,7 +54,7 @@ public class UserController {
 
         User user = userDTO.toModel();
         // Busca as categorias a serem permitidas no banco
-        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermission());
+        List<Category> findAllByName = channelRepository.findAllByName(userDTO.getPermission());
         user.setAllowToSendNotification(findAllByName);
 
         userRepository.save(user);
@@ -66,7 +66,7 @@ public class UserController {
     @GetMapping("/delete")
     public String delete(@RequestParam String name, UserDTO userDTO, Model model) {
 
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         if (name.isBlank()) {
@@ -87,7 +87,7 @@ public class UserController {
     @PostMapping("/update")
     public String update(@Valid UserDTO userDTO, BindingResult result, Model model) {
 
-        List<Category> categories = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categories = channelRepository.findAllByOrderByNameAsc();
         model.addAttribute("categorias", categories);
 
         if (result.hasErrors())
@@ -101,7 +101,7 @@ public class UserController {
             return "gerenciarUsuarios";
         }
 
-        List<Category> findAllByName = categoryRepository.findAllByName(userDTO.getPermission());
+        List<Category> findAllByName = channelRepository.findAllByName(userDTO.getPermission());
         byName.get().getAllowToSendNotification().addAll(findAllByName);
 
         userRepository.save(byName.get());
