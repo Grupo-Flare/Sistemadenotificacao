@@ -19,7 +19,6 @@ public class WebSecurityConfig extends AadWebSecurityConfigurerAdapter {
         httpSecurity
                 .authorizeRequests((authorize) -> {
                     authorize
-                            .antMatchers("/canais").permitAll()
                             .antMatchers("/", "/Login", "/resources/static/**", "/css/**", "/js/**", "/images/**", "/fonts/**").permitAll()
                             .antMatchers(HttpMethod.GET, "/notification").hasAuthority("APPROLE_Admin")
                             .antMatchers(HttpMethod.POST, "/notification").hasAnyAuthority("APPROLE_Admin", "APPROLE_UsuarioEnvia")
