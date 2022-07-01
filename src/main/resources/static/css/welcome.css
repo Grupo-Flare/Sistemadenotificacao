@@ -33,8 +33,34 @@ h6 {
     height: auto;
 }
 
+.navbar-toggler{
+    border: none;
+    padding: 10px 6px;
+    outline: none;
+}
+
+.navbar-toggler span {
+    display: block;
+    width: 40px;
+    height: 2px;
+    border: 1px;
+    background: white;
+}
+
+.navbar-toggler span + span {
+    margin-top: 10px;
+}
+
+.navbar-nav {
+    background-color: #C41632;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius:0 0 20px 20px;
+
+}
+
 .align-right {
-    margin-left: 350px;
+    margin-left: 380px;
 }
 
 .dropdown:hover .dropdown-menu {
