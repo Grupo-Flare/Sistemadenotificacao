@@ -1,7 +1,7 @@
 package br.com.flare.controller;
 
 import br.com.flare.model.Category;
-import br.com.flare.repository.CategoryRepository;
+import br.com.flare.repository.ChannelRepository;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -24,12 +24,12 @@ public class NotificationControllerIntegrationTest {
      */
 
     @Autowired
-    private CategoryRepository categoryRepository;
+    private ChannelRepository channelRepository;
 
     @BeforeEach
     void setUp() {
-        categoryRepository.deleteAll();
-        categoryRepository.saveAll(List.of(new Category("ECOS"), new Category("CEM"),
+        channelRepository.deleteAll();
+        channelRepository.saveAll(List.of(new Category("ECOS"), new Category("CEM"),
                 new Category("Ciência da Computação"),
                 new Category("Engenharia"),
                 new Category("Arquitetura"),
@@ -38,7 +38,7 @@ public class NotificationControllerIntegrationTest {
 
     @AfterEach
     void tearDown() {
-        categoryRepository.deleteAll();
+        channelRepository.deleteAll();
     }
 
     @Test
@@ -47,7 +47,7 @@ public class NotificationControllerIntegrationTest {
         List<String> categorias = Stream.of("ECOS", "CEM", "Ciência da Computação",
                         "Engenharia", "Arquitetura", "Direito").sorted().collect(Collectors.toList());
 
-        List<Category> categoriesNameAsc = categoryRepository.findAllByOrderByNameAsc();
+        List<Category> categoriesNameAsc = channelRepository.findAllByOrderByNameAsc();
         List<String> categories = new ArrayList<>();
 
         categoriesNameAsc.forEach(category -> categories.add(category.getName()));

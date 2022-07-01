@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Launch FlareApplication",
+            "request": "launch",
+            "mainClass": "br.com.flare.FlareApplication",
+            "projectName": "flare"
+        },
+        {
             "type": "pwa-chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",

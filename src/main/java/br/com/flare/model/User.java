@@ -32,6 +32,14 @@ public class User {
         this.email = email;
     }
 
+    public void addInscription(Category category){
+       this.inscribedCategories.add(category);
+    }
+
+    public void removeInscription(Category category) {
+        this.inscribedCategories.remove(category);
+    }
+
     public Long getId() {
         return id;
     }
